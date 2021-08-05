@@ -12,9 +12,23 @@ function buildCss(cb) {
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(cleanCSS())
-    .pipe(rename('lime-ui.css'))
+    .pipe(rename('plat-ui.css'))
     .pipe(gulp.dest('../lib/styles'))
   cb()
 }
 
-exports.default = gulp.series(buildCss)
+function buildSeperateCss(cb) {
+  Object.keys(components).forEach(compName => {
+    gulp
+      .src(`../src/styles/${compName}.scss`)
+      .pipe(sass())
+      .pipe(autoprefixer())
+      .pipe(cleanCSS())
+      .pipe(rename(`${compName}.css`))
+      .pipe(gulp.dest('../lib/styles'))
+  })
+
+  cb()
+}
+
+exports.default = gulp.series(buildCss, buildSeperateCss)

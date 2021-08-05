@@ -15,8 +15,8 @@ module.exports = merge(webpackBaseConfig, {
   output: {
     path: path.resolve(__dirname, '../lib'),
     publicPath: '/lib/',
-    filename: 'platform-ui.min.js', // 改成自己的类库名
-    library: 'platform-ui', // 类库导出
+    filename: 'plat-ui.min.js', // 改成自己的类库名
+    library: 'plat-ui', // 类库导出
     libraryTarget: 'umd',
     umdNamedDefine: true,
   },

@@ -1,8 +1,8 @@
 <template>
-  <div class="platform-notice">
-    <div class="platform-notice__main" v-for="item in notices" :key="item.id">
-      <div class="platform-notice__title">{{ item.title }}</div>
-      <div class="platform-notice__content">{{ item.content }}</div>
+  <div class="plat-notice">
+    <div class="plat-notice__main" v-for="item in notices" :key="item.id">
+      <div class="plat-notice__title">{{ item.title }}</div>
+      <div class="plat-notice__content">{{ item.content }}</div>
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <button
-    class="lime-button"
-    :class="{ [`lime-button-${type}`]: true }"
+    class="plat-button"
+    :class="{ [`plat-button-${type}`]: true }"
     type="button"
   >
     <slot></slot>

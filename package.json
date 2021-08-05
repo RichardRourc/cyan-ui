@@ -1,9 +1,14 @@
 {
+  "name": "plat-ui",
+  "version": "1.0.0",
+  "main": "lib/plat-ui.min.js",
   "scripts": {
     "build:style": "gulp --gulpfile build/gen-style.js",
     "build:prod": "webpack --config build/webpack.prod.js",
+    "build:components": "webpack --config build/webpack.component.js",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "dist": "npm run build:style && npm run build:prod && npm run build:components"
   },
   "dependencies": {
     "async-validator": "^3.0.4",
