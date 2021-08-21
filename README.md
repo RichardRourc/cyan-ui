@@ -47,4 +47,39 @@ plugins: [
       }
     ]
   ]
+
+// main.js
+import Vue from "Vue"
+import {Button,Notice} from "shanqu-plat-ui"
+
+Vue.component(Button, 'plat-button')
+Vue.prototype.$notice = Notice
+```
+
+:hammer: 开发组件
+
+```js
+新建文件夹放@/packages/下
+如按钮是button
+button/button.vue
+button/index.js
+
+然后在@/index.js里
+
+常规组件
+import Button from './packages/button'
+
+const components = {
+  platButton: Button,
+}
+绑定原型的组件
+import Notice from './packages/notice/notice.js'
+
+const install = function(Vue, options = {}) {
+  Object.keys(components).forEach(key => {
+    Vue.component(key, components[key])
+  })
+
+  Vue.prototype.$notice = Notice // 这里绑定原型
+}
 ```
