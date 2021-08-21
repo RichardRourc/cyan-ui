@@ -2,7 +2,7 @@ import Button from './packages/button'
 import Notice from './packages/notice/notice.js'
 
 const components = {
-  pButton: Button,
+  platButton: Button,
 }
 
 const install = function(Vue, options = {}) {

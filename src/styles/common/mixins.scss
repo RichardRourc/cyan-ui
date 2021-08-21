@@ -10,3 +10,7 @@ $namespace: 'platform'; /* 组件库的样式前缀 */
     @content;
   }
 }
+
+@mixin pointer() {
+  cursor: pointer;
+}

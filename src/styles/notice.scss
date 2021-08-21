@@ -6,7 +6,7 @@
 @include b(notice) {
   position: fixed;
   right: 20px;
-  top: 60px;
+  top: 0px;
   z-index: 1000;
 
   &__main {

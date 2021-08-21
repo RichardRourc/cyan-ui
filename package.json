@@ -1,7 +1,8 @@
 {
-  "name": "plat-ui",
+  "name": "shanqu-plat-ui",
   "version": "1.0.0",
   "main": "lib/plat-ui.min.js",
+  "description": "一个组件库",
   "scripts": {
     "build:style": "gulp --gulpfile build/gen-style.js",
     "build:prod": "webpack --config build/webpack.prod.js",

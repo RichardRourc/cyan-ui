@@ -4,6 +4,8 @@
 @import 'mixins/mixins';
 
 @include b(button) {
+  // @include pointer;
+  position: relative;
   min-width: 60px;
   height: 36px;
   font-size: 14px;
@@ -14,6 +16,13 @@
   outline: none;
   border: 1px solid transparent;
   padding: 0 10px;
+
+  overflow: hidden;
+  cursor: pointer;
+  // background-position: 1% 50%;
+  transition: all 0.3s ease;
+  -webkit-transition: background 0.5s ease;
+  box-shadow: 0px 0px 2px 1px rgba(255, 255, 255, 0.2);
 
   &:active,
   &:focus {
@@ -28,6 +37,7 @@
     &:focus,
     &:hover {
       background-color: rgba($--color-primary, 0.3);
+      // background-position: 99% 50%;
     }
   }
   &-primary {
@@ -38,6 +48,11 @@
     &:focus,
     &:hover {
       background-color: mix($--color-primary, #ccc);
+    }
+
+    &:active,
+    &:focus {
+      box-shadow: 0px 0px 2px 1px mix($--color-primary, #ddd);
     }
   }
 
@@ -59,6 +74,32 @@
     &:focus,
     &:hover {
       background-color: mix($--color-success, #ccc);
+    }
+  }
+
+  /* 实现水波纹效果的小球样式 */
+  > .ripple-ball {
+    // z-index: 999;
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    animation: ripple 1s;
+  }
+
+  /* 小球动画 */
+  @keyframes ripple {
+    0% {
+      transform: scale(2);
+    }
+    /* 波纹扩张 */
+    85% {
+      transform: scale(25);
+    }
+    100% {
+      opacity: 0;
     }
   }
 }
