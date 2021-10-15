@@ -4,10 +4,12 @@ test test one two three
 
 <template>
     <plat-button type="primary">Click me</plat-button>
+    <van-button>test</van-button>
 </template>
 
 <template>
 	<plat-button type="primary">Click me</plat-button>
+  
 </template>
 
 <script>
@@ -18,6 +20,7 @@ export default() {
     }
   },
   mounted() {
+    console.log('test')
     this.$notice({
         title: '提示',
         content: this.content,
