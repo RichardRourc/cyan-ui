@@ -10,6 +10,8 @@ test test one two three
 <template>
 	<plat-button type="primary">Click me</plat-button>
   <el-button @click="test">测试element组件按需引入 and click</el-button>
+
+<search-item></search-item>
 </template>
 
 <script>
