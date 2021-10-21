@@ -4,16 +4,16 @@ test test one two three
 
 <template>
     <plat-button type="primary">Click me</plat-button>
-    <van-button>test</van-button>
+    <van-button>test van-button</van-button>
 </template>
 
 <template>
 	<plat-button type="primary">Click me</plat-button>
-  
+  <el-button @click="test">测试element组件按需引入 and click</el-button>
 </template>
 
 <script>
-export default() {
+export default {
   data(){
     return {
       content:'test'
@@ -28,13 +28,7 @@ export default() {
     })
   },
   methods: {
-    test() {
-      this.$notice({
-          title: '提示',
-          content: this.content,
-          duration: 3
-      })
-    }
+    test() {this.$notice({title:'测试点击toast',content: this.content,duration:5})}
   }
 }
-<script>
+</script>

@@ -9,7 +9,7 @@
         "useBuiltIns": "usage",
         "corejs": "2.6.9"
       }
-    ]
+    ],
   ],
   "plugins": [
     "@babel/plugin-transform-runtime",
@@ -17,6 +17,13 @@
       "libraryName": "vant",
       "libraryDirectory": "es",
       "style": true
-    }]
+    },"vant"],
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
   ]
 }
