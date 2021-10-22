@@ -10,3 +10,10 @@ $namespace: 'plat'; /* 组件库的样式前缀 */
     @content;
   }
 }
+
+@mixin labelStyle($bgcolor: $BaseColor_blue) {
+  background-color: $bgcolor;
+  color: white;
+  font-weight: bold;
+  opacity: 0.9;
+}

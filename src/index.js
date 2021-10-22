@@ -1,8 +1,10 @@
 import Button from './packages/button'
+import SearchItem from './packages/SearchItem'
 import Notice from './packages/notice/notice.js'
 
 const components = {
   platButton: Button,
+  platSearchItem: SearchItem,
 }
 
 const install = function(Vue, options = {}) {

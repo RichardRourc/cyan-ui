@@ -11,7 +11,7 @@ test test one two three
 	<plat-button type="primary">Click me</plat-button>
   <el-button @click="test">测试element组件按需引入 and click</el-button>
 
-<search-item></search-item>
+<plat-search-item></plat-search-item>
 </template>
 
 <script>

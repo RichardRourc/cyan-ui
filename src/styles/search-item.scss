@@ -1,0 +1,80 @@
+/* search-item.scss */
+@charset "UTF-8";
+@import 'common/var';
+@import 'mixins/mixins';
+
+@include b(search-item) {
+  display: flex;
+  align-items: space-between;
+  margin-bottom: 8px;
+  padding-right: 16px;
+  height: 100%;
+  font-size: 13px;
+
+  .item-label {
+    opacity: 0.9;
+    height: 95%;
+    padding: 0 20px;
+    margin-right: -3px;
+    line-height: 30px;
+    font-size: 13px;
+    border-right: 0;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #409eff;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  ::v-deep .el-select .el-input__inner {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .el-select {
+    width: 100%;
+  }
+
+  .el-input,
+  .el-autocomplete {
+    ::v-deep .el-input-group__prepend,
+    ::v-deep .el-input-group__append {
+      @include labelStyle();
+    }
+  }
+
+  ::v-deep .el-input-group__prepend {
+    font-size: 13px;
+  }
+
+  .search-border {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    min-height: 30px;
+    background-color: transparent;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+
+    .search-radio,
+    .search-checkbox {
+      ::v-deep .el-checkbox-group,
+      ::v-deep .el-checkbox,
+      ::v-deep .el-radio-group,
+      ::v-deep .el-radio {
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+
+    &:hover {
+      border-color: #c0c4cc;
+    }
+  }
+
+  ::v-deep .el-date-editor--daterange {
+    width: 260px;
+  }
+}

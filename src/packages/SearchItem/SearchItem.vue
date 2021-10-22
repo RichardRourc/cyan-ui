@@ -1,6 +1,6 @@
 <template>
   <section
-    class="search-item"
+    class="plat-search-item"
     :style="
       `width: ${width}%; min-width: ${minWidth}px; max-width: ${maxWidth}px;`
     "
@@ -18,9 +18,9 @@
         v-if="searchType === 'input'"
         @keyup.enter.native="handleKeyup"
       >
-        <template slot="prepend" v-if="label !== ''">
+        <!-- <template slot="prepend" v-if="label">
           <span>{{ label }}</span>
-        </template>
+        </template> -->
       </el-input>
       <!-- 下拉选择器默认插槽 -->
       <el-select
@@ -88,8 +88,14 @@ import {
   PropSync,
 } from 'vue-property-decorator'
 
+import { Input, Select, Checkbox, Radio } from 'element-ui'
+import { useComponent } from '../../utils/component.js'
+
+const components = [Input, Select, Checkbox, Radio]
+useComponent(components, Vue)
+
 @Component({
-  components: {},
+  name: 'SearchItem',
 })
 export default class SearchItem extends Vue {
   @Prop({ default: () => true }) needLabel
@@ -98,7 +104,7 @@ export default class SearchItem extends Vue {
   @Prop() borderWidth
 
   @Prop({ default: () => 'input' }) searchType
-  @Prop({ default: () => 'label', required: true }) label
+  @Prop({ default: () => 'label' }) label
   @PropSync('inputValue') inputValueCopy //传进来的值
   @Prop({ default: () => [] }) statusOpts // 选择器的选项数组
   @PropSync('selectValue') selectValueCopy // 选择器的值 默认只有简单值赋值之类的
@@ -117,86 +123,4 @@ export default class SearchItem extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.search-item {
-  display: flex;
-  align-items: space-between;
-  margin-bottom: 8px;
-  padding-right: 16px;
-  height: 100%;
-  font-size: 13px;
-
-  .item-label {
-    opacity: 0.9;
-    height: 95%;
-    padding: 0 20px;
-    margin-right: -3px;
-    line-height: 30px;
-    font-size: 13px;
-    border-right: 0;
-    color: #fff;
-    vertical-align: middle;
-    background-color: #409eff;
-    border: 1px solid #dcdfe6;
-    border-radius: 4px;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-
-  ::v-deep .el-select .el-input__inner {
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-  }
-
-  .el-select {
-    width: 100%;
-  }
-
-  @mixin labelStyle($bgcolor: $BaseColor_blue) {
-    background-color: $bgcolor;
-    color: white;
-    font-weight: bold;
-    opacity: 0.9;
-  }
-  .el-input,
-  .el-autocomplete {
-    ::v-deep .el-input-group__prepend,
-    ::v-deep .el-input-group__append {
-      @include labelStyle();
-    }
-  }
-
-  ::v-deep .el-input-group__prepend {
-    font-size: 13px;
-  }
-
-  .search-border {
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    min-height: 30px;
-    background-color: transparent;
-    border: 1px solid #dcdfe6;
-    border-radius: 4px;
-
-    .search-radio,
-    .search-checkbox {
-      ::v-deep .el-checkbox-group,
-      ::v-deep .el-checkbox,
-      ::v-deep .el-radio-group,
-      ::v-deep .el-radio {
-        height: 30px;
-        line-height: 30px;
-      }
-    }
-
-    &:hover {
-      border-color: #c0c4cc;
-    }
-  }
-
-  ::v-deep .el-date-editor--daterange {
-    width: 260px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
