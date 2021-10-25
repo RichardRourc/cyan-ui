@@ -78,7 +78,7 @@
   </section>
 </template>
 
-<script>
+<script type="typescript">
 import {
   Vue,
   Component,

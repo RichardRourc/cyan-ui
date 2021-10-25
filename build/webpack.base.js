@@ -61,7 +61,7 @@ module.exports = {
           {
             loader: 'style-loader',
             options: {
-              sourceMap: true,
+              // sourceMap: true,
             },
           },
           {
@@ -78,7 +78,7 @@ module.exports = {
           {
             loader: 'style-loader',
             options: {
-              sourceMap: true,
+              // sourceMap: true,
             },
           },
           {
@@ -101,7 +101,8 @@ module.exports = {
           {
             loader: 'style-loader',
             options: {
-              sourceMap: true,
+              // sourceMap: true,
+              injectType: 'sourceMap',
             },
           },
           {
@@ -113,7 +114,8 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
+              // sourceMap: true,
+              implementation: require('sass'),
             },
           },
         ],
