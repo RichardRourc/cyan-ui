@@ -1,5 +1,5 @@
 import Button from './packages/button'
-import SearchItem from './packages/SearchItem'
+import SearchItem from './packages/search-item'
 import Notice from './packages/notice/notice.js'
 
 const components = {

@@ -5,7 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import PlatformUI from '../../src/index.js'
 import '../../src/styles/index.scss'
 
-import SearchItem from '../../src/packages/SearchItem/index'
+import SearchItem from '../../src/packages/search-item/index'
 import '../../src/styles/common/var.scss'
 
 // 样式在这里需要自己再引入
