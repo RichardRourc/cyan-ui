@@ -60,9 +60,6 @@ module.exports = {
         loaders: [
           {
             loader: 'style-loader',
-            options: {
-              // sourceMap: true,
-            },
           },
           {
             loader: 'css-loader',
@@ -77,9 +74,6 @@ module.exports = {
         loaders: [
           {
             loader: 'style-loader',
-            options: {
-              // sourceMap: true,
-            },
           },
           {
             loader: 'css-loader',
@@ -100,10 +94,6 @@ module.exports = {
         loaders: [
           {
             loader: 'style-loader',
-            options: {
-              // sourceMap: true,
-              injectType: 'sourceMap',
-            },
           },
           {
             loader: 'css-loader',
@@ -114,7 +104,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              // sourceMap: true,
+              sourceMap: true,
               implementation: require('sass'),
             },
           },
