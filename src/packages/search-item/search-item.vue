@@ -95,9 +95,10 @@ const components = [Input, Select, Checkbox, Radio]
 useComponent(components, Vue)
 
 @Component({
-  name: 'SearchItem',
+  name: 'platSearchItem',
 })
 export default class SearchItem extends Vue {
+
   @Prop({ default: () => true }) needLabel
   @Prop({ default: () => false }) needBorder
   @Prop({ default: () => 0 }) minHeightBorder
@@ -105,9 +106,9 @@ export default class SearchItem extends Vue {
 
   @Prop({ default: () => 'input' }) searchType
   @Prop({ default: () => 'label' }) label
-  @PropSync('inputValue') inputValueCopy //传进来的值
+  @PropSync('inputValue') inputValueCopy //传进来的 值
   @Prop({ default: () => [] }) statusOpts // 选择器的选项数组
-  @PropSync('selectValue') selectValueCopy // 选择器的值 默认只有简单值赋值之类的
+  @PropSync('selectValue') selectValueCopy0 // 选择器的值 默认只有简单值赋值之类的
   @Prop({ default: () => [] }) checkboxOpts // 多选择框的选项数组
   @PropSync('checkboxList') checkboxListCopy // 多选择框的值 默认只有简单值赋值之类的
   @Prop({ default: () => [] }) radioOpts // 单选框的选项数组
@@ -117,8 +118,17 @@ export default class SearchItem extends Vue {
   @Prop({ default: () => 'auto' }) minWidth // 最小宽度
   @Prop({ default: () => 'auto' }) maxWidth
 
+
+
   handleKeyup() {
     this.$emit('inputKeyup')
+  }
+
+  data() {
+    return {
+    name:'test'
+
+    }
   }
 }
 </script>
