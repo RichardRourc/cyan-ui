@@ -50,9 +50,21 @@ plugins: [
 
 // main.js
 import Vue from "Vue"
-import {Button,Notice} from "shanqu-plat-ui"
+import {Button,Notice,SearchItem} from "shanqu-plat-ui"
 
-Vue.component(Button, 'plat-button')
+var arr = [Button,Notice,SearchItem]
+// 之前项目用vue2+ts写的vue继承组件，返回的是Vue实例的类，无法直接获取name，需要写这个方法判断是继承的类或者是对象，并且由于按需加载的模块babel插件解析的问题，自定义的函数貌似无法直接调用这个引入的接口需要新的变量存储
+function registComponent(com, Vue) {
+  function registComponent(com, Vue) {
+  var name = (com.extendOptions && com.extendOptions.name) || com.name
+  Vue.component(name, com)
+}
+}
+
+arr.forEach(v => {
+  registComponent(v, Vue)
+})
+
 Vue.prototype.$notice = Notice
 ```
 
