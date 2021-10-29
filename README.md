@@ -52,7 +52,8 @@ plugins: [
 import Vue from "Vue"
 import {Button,Notice,SearchItem} from "shanqu-plat-ui"
 
-var arr = [Button,Notice,SearchItem]
+// 普通vue组件引入方法
+var arr = [Button,SearchItem]
 // 之前项目用vue2+ts写的vue继承组件，返回的是Vue实例的类，无法直接获取name，需要写这个方法判断是继承的类或者是对象，并且由于按需加载的模块babel插件解析的问题，自定义的函数貌似无法直接调用这个引入的接口需要新的变量存储
 function registComponent(com, Vue) {
   function registComponent(com, Vue) {
@@ -64,7 +65,8 @@ function registComponent(com, Vue) {
 arr.forEach(v => {
   registComponent(v, Vue)
 })
-
+----------------
+// 动态组件引入方法
 Vue.prototype.$notice = Notice
 ```
 
@@ -75,6 +77,8 @@ Vue.prototype.$notice = Notice
 如按钮是button
 button/button.vue
 button/index.js
+
+在/build/components.json 写驼峰式大小写（Camel-Case）命名的组件名和 组件js对应的src位置
 
 然后在@/index.js里
 
