@@ -1,5 +1,12 @@
 # shanqu-plat-ui
 
+- [x] 开发环境本地调试组件
+- [x] 按需引入
+- [ ] 组件 prop 文档
+- [ ] 单元测试
+- [x] 代码格式化 prettier + eslint
+- [ ] git 提交规范
+
 :factory:​ 构建组件库
 
 ```js
@@ -56,10 +63,8 @@ import {Button,Notice,SearchItem} from "shanqu-plat-ui"
 var arr = [Button,SearchItem]
 // 之前项目用vue2+ts写的vue继承组件，返回的是Vue实例的类，无法直接获取name，需要写这个方法判断是继承的类或者是对象，并且由于按需加载的模块babel插件解析的问题，自定义的函数貌似无法直接调用这个引入的接口需要新的变量存储
 function registComponent(com, Vue) {
-  function registComponent(com, Vue) {
   var name = (com.extendOptions && com.extendOptions.name) || com.name
   Vue.component(name, com)
-}
 }
 
 arr.forEach(v => {
