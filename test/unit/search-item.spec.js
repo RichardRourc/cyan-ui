@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import SearchItem from '@/packages/search-item/index.js'
+import SearchItem from '../../src/packages/search-item/index.js'
 
 describe('search-item.vue', () => {
   it('renders a search-item', () => {

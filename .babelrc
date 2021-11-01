@@ -7,10 +7,11 @@
         "modules": "commonjs",
         "spec": true,
         "useBuiltIns": "usage",
-        "corejs": "2.6.9"
+        "corejs": "2.6.9",
+        // "modules": false
       }
     ],
-    ["env", { "modules": false }]
+    // ["env", { "modules": false }]
   ],
   "plugins": [
     "@babel/plugin-transform-runtime",
@@ -30,7 +31,7 @@
   ],
   "env": {
     "test": {
-      "presets": [["env", { "targets": { "node": "current" } }]]
+      "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
     }
   }
 }
