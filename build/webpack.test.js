@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 // const config = require('./config');
 const config = require('./webpack.base.js')
-console.log(config, 'config')
+
 const webpackConfig = {
   mode: 'development',
   // entry: {
