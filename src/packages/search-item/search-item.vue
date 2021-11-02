@@ -108,7 +108,7 @@ export default class SearchItem extends Vue {
   @Prop({ default: () => 'label' }) label
   @PropSync('inputValue') inputValueCopy //传进来的 值
   @Prop({ default: () => [] }) statusOpts // 选择器的选项数组
-  @PropSync('selectValue') selectValueCopy0 // 选择器的值 默认只有简单值赋值之类的
+  @PropSync('selectValue') selectValueCopy // 选择器的值 默认只有简单值赋值之类的
   @Prop({ default: () => [] }) checkboxOpts // 多选择框的选项数组
   @PropSync('checkboxList') checkboxListCopy // 多选择框的值 默认只有简单值赋值之类的
   @Prop({ default: () => [] }) radioOpts // 单选框的选项数组

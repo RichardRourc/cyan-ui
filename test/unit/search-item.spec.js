@@ -9,7 +9,7 @@ describe('search-item.vue', () => {
 
       console.log(wrapper.html())
     },
-    it('test radip type', () => {
+    it('test radio type', () => {
       const searchType = 'select'
       let selectValue = ''
 
@@ -18,7 +18,7 @@ describe('search-item.vue', () => {
       })
       console.log(wrapper, 'wrapper')
 
-      expect(document.querySelector())
+      // expect(document.querySelector())
     })
   )
 })
