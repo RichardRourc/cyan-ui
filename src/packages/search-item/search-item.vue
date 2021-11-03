@@ -88,10 +88,10 @@ import {
   PropSync,
 } from 'vue-property-decorator'
 
-import { Input, Select, Checkbox, Radio } from 'element-ui'
+import { Input, Select, Checkbox, Radio,Option } from 'element-ui'
 import { useComponent } from '../../utils/component.js'
 
-const components = [Input, Select, Checkbox, Radio]
+const components = [Input, Select, Checkbox, Radio,Option]
 useComponent(components, Vue)
 
 @Component({
