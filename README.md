@@ -1,5 +1,7 @@
 # shanqu-plat-ui
 
+webpack4 打包工具 + vue2.x 框架
+
 - [x] 开发环境本地调试组件
 - [x] 按需引入
 - [ ] 组件 prop 文档
