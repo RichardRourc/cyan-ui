@@ -3,9 +3,10 @@
 - [x] 开发环境本地调试组件
 - [x] 按需引入
 - [ ] 组件 prop 文档
-- [ ] 单元测试
+- [x] 单元测试 mocha + karma + vue-test-utils + karma-coverage
 - [x] 代码格式化 prettier + eslint
 - [ ] git 提交规范
+- [ ] typescript 文件和 vue 文件的 ts 写法
 
 :factory:​ 构建组件库
 
@@ -103,4 +104,11 @@ const install = function(Vue, options = {}) {
 
   Vue.prototype.$notice = Notice // 这里绑定原型
 }
+```
+
+:smile: 单元测试
+
+```js
+>>> yarn test
+运行后单元测试覆盖率报告在coverage/Icov-report/index.html 或者 coverage/text.txt coverage/text-summary.txt
 ```
