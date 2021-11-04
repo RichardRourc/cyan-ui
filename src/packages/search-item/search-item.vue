@@ -4,7 +4,6 @@
     :style="
       `width: ${width}%; min-width: ${minWidth}px; max-width: ${maxWidth}px;`
     "
-    @click="test"
   >
     <div v-if="needLabel" class="item-label ">
       <label for="label-item">{{ label }}</label>
@@ -109,8 +108,7 @@ export default class SearchItem extends Vue {
   @Prop({ default: () => 'label' }) label
   @PropSync('inputValue') inputValueCopy //传进来的 值
   @Prop({ default: () => [] }) statusOpts // 选择器的选项数组
-  @Prop() selectValue
-  // @PropSync('selectValue') selectValueCopy // 选择器的值 默认只有简单值赋值之类的
+  @PropSync('selectValue') selectValueCopy // 选择器的值 默认只有简单值赋值之类的
   @Prop({ default: () => [] }) checkboxOpts // 多选择框的选项数组
   @PropSync('checkboxList') checkboxListCopy // 多选择框的值 默认只有简单值赋值之类的
   @Prop({ default: () => [] }) radioOpts // 单选框的选项数组
@@ -120,26 +118,18 @@ export default class SearchItem extends Vue {
   @Prop({ default: () => 'auto' }) minWidth // 最小宽度
   @Prop({ default: () => 'auto' }) maxWidth
 
-  testValue = 'test'
-  selectValueCopy = ''
 
-  created() {
-    this.selectValueCopy = this.selectValue
-  }
-
-  test() {
-    this.testValue = 'test1'
-  }
 
   handleKeyup() {
     this.$emit('inputKeyup')
   }
 
-  @Watch('selectValueCopy')
-  changeSelect(val) {
-    this.$emit('update:selectValue',val)
-  }
+  data() {
+    return {
+    name:'test'
 
+    }
+  }
 }
 </script>
 
