@@ -1,17 +1,16 @@
 import { mount, shallowMount } from '@vue/test-utils'
 import SearchItem from '../../src/packages/search-item/index.js'
-
-import { Select, Option, Input } from 'element-ui'
-import Vue from 'vue'
+import { createElm, createVue, triggerEvent } from '../utils/util'
 
 describe('search-item.vue', () => {
   it(
     'renders a search-item',
     () => {
-      // const wrapper = mount(SearchItem)
-      // console.log(wrapper.html())
+      const wrapper = mount(SearchItem)
+      // expect(wrapper.html())
+      expect(wrapper.find('.plat-search-item').isVisible()).to.true
     },
-    it('test select type', async () => {
+    it('select value correctly', async () => {
       const searchType = 'select'
       let selectValue = '',
         statusOpts = [
@@ -19,69 +18,42 @@ describe('search-item.vue', () => {
           { label: 'label1', value: 'value1' },
         ]
 
-      const wrapper = shallowMount(SearchItem, {
-          propsData: { searchType, selectValue, statusOpts },
-          stubs: {
-            'el-input': Input,
-
-            'el-select': Select,
-            'el-option': Option,
+      let vm
+      vm = createVue(
+        {
+          template: `<div>
+                      <plat-search-item
+                        :selectValue.sync="selectValue"
+                        searchType="searchType"
+                        :statusOpts="statusOpts">
+                      </plat-search-item>
+                    </div>`,
+          data() {
+            return {
+              selectValue,
+              searchType,
+              statusOpts,
+            }
           },
-        }),
-        vm = wrapper.vm
-
-      console.log(
-        wrapper
-          .find('.el-select')
-
-          .classes(),
-        // wrapper.find('.el-option').classes(),
-        'test'
+        },
+        true
       )
-      // await wrapper
-      //   .findAll('.el-select')
-      //   .at(0)
-      //   .trigger('change')
+      const options = vm.$el.querySelectorAll('.el-select-dropdown__item')
+      expect(vm.selectValue).to.equal('')
 
-      // await wrapper
-      //   .find('.el-select-dropdown__item')
+      triggerEvent(options[0], 'mouseenter')
+      options[0].click()
+      setTimeout(async () => {
+        expect(vm.selectValue).to.equal('value')
 
-      //   .trigger('click')
+        triggerEvent(options[1], 'mouseenter')
+        await options[1].click()
 
-      // await wrapper
-      //   .findAll('.el-select')
-      //   .at(0)
-      //   .trigger('change')
-
-      console.log(
-        wrapper
-          .findAll('.el-select-dropdown__item')
-          .at(0)
-          .classes(),
-        'test options'
-      )
-      // await vm.$nextTick()
-      // const options = wrapper
-      //   .find('.el-select-dropdown__list')
-      //   .findAll('el-s elect-dropdown__items')
-      // console.log(options, 'options')
-      // options.at(0).setSelected()
-      // wrapper.vm.select(statusOpts)
-
-      // wrapper.findAll('.el-select-dropdown__item').at(0).element.selected = true
-      // wrapper.find('.el-select').trigger('change')
-
-      // const reco = wrapper.findComponent(Select)
-      // reco.vm.$emit('change')
-
-      wrapper
-        .findAll('.el-select-dropdown__item')
-        .at(0)
-        .trigger('click')
-      await Vue.nextTick()
-      console.log(vm.selectValue, vm.selectValueCopy, 'wrapper')
-      console.log(wrapper.html(), wrapper.vm.searchType, wrapper.vm.selectValue)
-      // expect(document.querySelector())
+        // 这里的setTimeout 好像并没有等待vue数据更新
+        // setTimeout(() => {
+        expect(vm.selectValue).to.equal('value1')
+        // }, 100)
+      }, 100)
     })
   )
 })
