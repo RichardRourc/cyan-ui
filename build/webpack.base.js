@@ -16,6 +16,8 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
+            ts: 'ts-loader',
+            tsx: 'babel-loader!ts-loader',
             css: [
               'vue-style-loader',
               {
@@ -46,6 +48,12 @@ module.exports = {
           },
           sourceMap: true,
         },
+      },
+      // ts
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        options: { appendTsSuffixTo: [/TS\.vue$/] },
       },
       {
         test: /\.js$/,
@@ -130,13 +138,13 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
   ],
-  alias: {
-    main: path.resolve(__dirname, '../src'),
-    packages: path.resolve(__dirname, '../src/packages'),
-    // examples: path.resolve(__dirname, '../examples'),
-    // 'element-ui': path.resolve(__dirname, '../'),
-  },
-  jsexclude: /node_modules|utils\/popper\.js|utils\/date\.js/,
+  // alias: {
+  //   main: path.resolve(__dirname, '../src'),
+  //   packages: path.resolve(__dirname, '../src/packages'),
+  //   // examples: path.resolve(__dirname, '../examples'),
+  //   // 'element-ui': path.resolve(__dirname, '../'),
+  // },
+  // jsexclude: /node_modules|utils\/popper\.js|utils\/date\.js/,
 }
 
 // exports.alias = {

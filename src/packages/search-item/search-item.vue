@@ -78,7 +78,7 @@
   </section>
 </template>
 
-<script type="typescript">
+<script lang="ts">
 import {
   Vue,
   Component,
@@ -88,37 +88,36 @@ import {
   PropSync,
 } from 'vue-property-decorator'
 
-import { Input, Select, Checkbox, Radio,Option } from 'element-ui'
+import { Input, Select, Checkbox, Radio, Option } from 'element-ui'
 import { useComponent } from '../../utils/component.js'
 
-const components = [Input, Select, Checkbox, Radio,Option]
+const components = [Input, Select, Checkbox, Radio, Option]
 useComponent(components, Vue)
 
 @Component({
   name: 'platSearchItem',
 })
 export default class SearchItem extends Vue {
+  @Prop({ default: () => true, type: Boolean }) needLabel!: boolean
+  @Prop({ default: () => false }) needBorder!: boolean
+  @Prop({ default: () => 0 }) minHeightBorder!: number
+  @Prop() borderWidth!: string | number
 
-  @Prop({ default: () => true }) needLabel
-  @Prop({ default: () => false }) needBorder
-  @Prop({ default: () => 0 }) minHeightBorder
-  @Prop() borderWidth
+  @Prop({ default: () => 'input' }) searchType!: string
+  @Prop({ default: () => 'label' }) label!: string
+  @PropSync('inputValue') inputValueCopy!: string //传进来的 值
+  @Prop({ default: () => [] }) statusOpts!: [any] // 选择器的选项数组
+  @PropSync('selectValue') selectValueCopy!: string // 选择器的值 默认只有简单值赋值之类的
+  @Prop({ default: () => [] }) checkboxOpts!: [any] // 多选择框的选项数组
+  @PropSync('checkboxList') checkboxListCopy!: string // 多选择框的值 默认只有简单值赋值之类的
+  @Prop({ default: () => [] }) radioOpts!: [any] // 单选框的选项数组
+  @PropSync('radioValue') radioValueCopy!: string // 单选框的值 默认只有简单值赋值之类的
+  @Prop({ default: () => '' }) placeholder!: string
+  @Prop({ default: () => 'auto' }) width!: string | number
+  @Prop({ default: () => 'auto' }) minWidth!: string | number // 最小宽度
+  @Prop({ default: () => 'auto' }) maxWidth!: string | number
 
-  @Prop({ default: () => 'input' }) searchType
-  @Prop({ default: () => 'label' }) label
-  @PropSync('inputValue') inputValueCopy //传进来的 值
-  @Prop({ default: () => [] }) statusOpts // 选择器的选项数组
-  @PropSync('selectValue') selectValueCopy // 选择器的值 默认只有简单值赋值之类的
-  @Prop({ default: () => [] }) checkboxOpts // 多选择框的选项数组
-  @PropSync('checkboxList') checkboxListCopy // 多选择框的值 默认只有简单值赋值之类的
-  @Prop({ default: () => [] }) radioOpts // 单选框的选项数组
-  @PropSync('radioValue') radioValueCopy // 单选框的值 默认只有简单值赋值之类的
-  @Prop({ default: () => '' }) placeholder
-  @Prop({ default: () => 'auto' }) width
-  @Prop({ default: () => 'auto' }) minWidth // 最小宽度
-  @Prop({ default: () => 'auto' }) maxWidth
-
-
+  test: any = ''
 
   handleKeyup() {
     this.$emit('inputKeyup')
@@ -126,8 +125,7 @@ export default class SearchItem extends Vue {
 
   data() {
     return {
-    name:'test'
-
+      name: 'test',
     }
   }
 }

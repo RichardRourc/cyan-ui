@@ -13,6 +13,7 @@ import 'vant/lib/button/style'
 import 'element-ui/lib/theme-chalk/button.css'
 
 export default ({ Vue, options, router }) => {
+  console.log(SearchItem, 'searchitem')
   Vue.component(SearchItem.name, SearchItem)
   Vue.use(Button)
   Vue.use(EButton)

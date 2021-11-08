@@ -18,7 +18,11 @@ const webpackConfig = {
   // },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    alias: Object.assign(config.alias, {
+    alias: Object.assign({
+      main: path.resolve(__dirname, '../src'),
+      packages: path.resolve(__dirname, '../src/packages'),
+      // examples: path.resolve(__dirname, '../examples'),
+      // 'element-ui': path.resolve(__dirname, '../'),}, {
       vue$: 'vue/dist/vue.common.js',
     }),
     modules: ['node_modules'],
@@ -28,7 +32,8 @@ const webpackConfig = {
       {
         test: /\.(js|jsx?|babel|es6)$/,
         include: process.cwd(),
-        exclude: config.jsexclude,
+        exclude: /node_modules|utils\/popper\.js|utils\/date\.js/,
+        // exclude: config.jsexclude,
         loader: 'babel-loader',
         options: { presets: ['@babel/preset-env'] },
       },
