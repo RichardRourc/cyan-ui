@@ -11,57 +11,74 @@ function resolve(dir) {
 module.exports = {
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            ts: 'ts-loader',
-            tsx: 'babel-loader!ts-loader',
-            css: [
-              'vue-style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true,
-                },
-              },
-            ],
-            less: [
-              'vue-style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true,
-                },
-              },
-              {
-                loader: 'less-loader',
-                options: {
-                  sourceMap: true,
-                },
-              },
-            ],
-          },
-          postLoaders: {
-            html: 'babel-loader?sourceMap',
-          },
-          sourceMap: true,
-        },
-      },
+      // {
+      //   test: /\.vue$/,
+      //   loader: 'vue-loader',
+      //   options: {
+      //     loaders: {
+      //       ts: 'ts-loader',
+      //       tsx: 'babel-loader!ts-loader',
+      //       css: [
+      //         'vue-style-loader',
+      //         {
+      //           loader: 'css-loader',
+      //           options: {
+      //             sourceMap: true,
+      //           },
+      //         },
+      //       ],
+      //       less: [
+      //         'vue-style-loader',
+      //         {
+      //           loader: 'css-loader',
+      //           options: {
+      //             sourceMap: true,
+      //           },
+      //         },
+      //         {
+      //           loader: 'less-loader',
+      //           options: {
+      //             sourceMap: true,
+      //           },
+      //         },
+      //       ],
+      //     },
+      //     postLoaders: {
+      //       html: 'babel-loader?sourceMap',
+      //     },
+      //     sourceMap: true,
+      //   },
+      // },
       // ts
       {
-        test: /\.ts$/,
-        loader: 'ts-loader',
-        options: { appendTsSuffixTo: [/TS\.vue$/] },
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader',
+        },
       },
+      // {
+      //   test: /\.tsx?$/,
+      //   loader: 'ts-loader',
+      //   options: { appendTsSuffixTo: [/TS\.vue$/] },
+      // },
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         options: {
           sourceMap: true,
         },
         exclude: /node_modules/,
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: [/node_modules/],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/],
+            // transpileOnly: true,
+          },
+        },
       },
       {
         test: /\.css$/,

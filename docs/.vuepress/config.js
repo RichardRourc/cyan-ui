@@ -1,5 +1,9 @@
 // import webpack from '../../build/webpack.base'
 const config = require('../../build/webpack.base')
+const webpack = require('webpack')
+const pkg = require('../../package.json')
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   title: 'Platform UI',
@@ -18,6 +22,77 @@ module.exports = {
         },
       ],
     },
+  },
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          exclude: [/node_modules/],
+          use: {
+            loader: 'ts-loader',
+            options: {
+              appendTsSuffixTo: [/\.vue$/],
+            },
+          },
+        },
+        {
+          test: /\.vue$/,
+          use: {
+            loader: 'vue-loader',
+            options: {
+              loaders: {
+                // ts: 'ts-loader',
+                // tsx: 'babel-loader!ts-loader',
+                css: [
+                  'vue-style-loader',
+                  {
+                    loader: 'css-loader',
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                ],
+                less: [
+                  'vue-style-loader',
+                  {
+                    loader: 'css-loader',
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                  {
+                    loader: 'less-loader',
+                    options: {
+                      sourceMap: true,
+                    },
+                  },
+                ],
+              },
+              postLoaders: {
+                html: 'babel-loader?sourceMap',
+              },
+              sourceMap: true,
+            },
+          },
+        },
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          options: {
+            sourceMap: true,
+          },
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    plugins: [
+      new webpack.optimize.ModuleConcatenationPlugin(),
+      new webpack.DefinePlugin({
+        'process.env.VERSION': `'${pkg.version}'`,
+      }),
+      new VueLoaderPlugin(),
+    ],
   },
   // configureWebpack: {
   //   module: {

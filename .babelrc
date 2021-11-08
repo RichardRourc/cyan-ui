@@ -3,18 +3,34 @@
     [
       "@babel/preset-env",
       {
-        "loose": false,
-        "modules": "commonjs",
+        // 原本版本
+        // "loose": false,
+        // "modules": "commonjs",
+        // "corejs": "2.6.9",
         "spec": true,
         "useBuiltIns": "usage",
-        "corejs": "2.6.9",
-        // "modules": false
+        // 新测试的
+        "corejs": 3,
+        "modules": false
       }
     ],
     // ["env", { "modules": false }]
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime",
+    
+    ["@babel/proposal-decorators", { "legacy": true }],
+    // ["@babel/proposal-decorators", { "legacy": true,"loose": true }],
+    // ["@babel/proposal-class-properties", { "loose": true }],
+    ["@babel/proposal-class-properties"],
+    // ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+    ["@babel/plugin-transform-runtime",
+      {
+        "corejs": false,
+        "helpers": true,
+        "useESModules": false,
+        "regenerator": true,
+        "absoluteRuntime": "./node_modules"
+      }],
     ["import", {
       "libraryName": "vant",
       "libraryDirectory": "es",
@@ -27,7 +43,6 @@
         "styleLibraryName": "theme-chalk"
       }
     ],
-    ["@babel/plugin-proposal-decorators", { "legacy": true }]
   ],
   "env": {
     "test": {
