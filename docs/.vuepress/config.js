@@ -8,12 +8,13 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
+  plugins: ['vuepress-plugin-typescript'],
   title: 'Platform UI',
   description: 'Just playing around',
   themeConfig: {
     nav: [
       { text: '样例', link: '/' },
-      { text: 'test', link: '/pages' },
+      { text: 'test', link: '/pages/test.md' },
     ],
     sidebar: {
       '/': 'auto',
@@ -25,7 +26,7 @@ module.exports = {
       ],
     },
   },
-  configureWebpack: config,
+  // configureWebpack: config,
   // configureWebpack: {
   //   resolve: {
   //     // extensions: ['.js', '.vue', '.json'],

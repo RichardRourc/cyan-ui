@@ -6,7 +6,7 @@ const components = {
   platButton: Button,
   platSearchItem: SearchItem,
 }
-console.log(SearchItem, 's')
+console.log(SearchItem, 's', /.tsx?$/.test('.ts'))
 const install = function(Vue, options = {}) {
   Object.keys(components).forEach(key => {
     Vue.component(key, components[key])

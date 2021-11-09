@@ -12564,6 +12564,17 @@ trim-repeated@^1.0.0:
   dependencies:
     glob "^7.1.2"
 
+ts-loader@^7.0.3:
+  version "7.0.5"
+  resolved "https://registry.nlark.com/ts-loader/download/ts-loader-7.0.5.tgz?cache=0&sync_timestamp=1632169134951&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fts-loader%2Fdownload%2Fts-loader-7.0.5.tgz#789338fb01cb5dc0a33c54e50558b34a73c9c4c5"
+  integrity sha1-eJM4+wHLXcCjPFTlBVizSnPJxMU=
+  dependencies:
+    chalk "^2.3.0"
+    enhanced-resolve "^4.0.0"
+    loader-utils "^1.0.2"
+    micromatch "^4.0.0"
+    semver "^6.0.0"
+
 ts-loader@~8.2.0:
   version "8.2.0"
   resolved "https://registry.nlark.com/ts-loader/download/ts-loader-8.2.0.tgz?cache=0&sync_timestamp=1632169134951&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fts-loader%2Fdownload%2Fts-loader-8.2.0.tgz#6a3aeaa378aecda543e2ed2c332d3123841d52e0"
@@ -13233,6 +13244,14 @@ vuepress-plugin-smooth-scroll@^0.0.3:
   integrity sha1-bv8tTBhsypF8yfffKwr33nyMZDg=
   dependencies:
     smoothscroll-polyfill "^0.4.3"
+
+vuepress-plugin-typescript@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.nlark.com/vuepress-plugin-typescript/download/vuepress-plugin-typescript-0.3.1.tgz#6c9e2999e1346d9c1198f7995a0f4e46902f9472"
+  integrity sha1-bJ4pmeE0bZwRmPeZWg9ORpAvlHI=
+  dependencies:
+    cache-loader "^3.0.0"
+    ts-loader "^7.0.3"
 
 vuepress@^1.0.3:
   version "1.8.2"
