@@ -11,51 +11,51 @@ function resolve(dir) {
 module.exports = {
   module: {
     rules: [
-      // {
-      //   test: /\.vue$/,
-      //   loader: 'vue-loader',
-      //   options: {
-      //     loaders: {
-      //       ts: 'ts-loader',
-      //       tsx: 'babel-loader!ts-loader',
-      //       css: [
-      //         'vue-style-loader',
-      //         {
-      //           loader: 'css-loader',
-      //           options: {
-      //             sourceMap: true,
-      //           },
-      //         },
-      //       ],
-      //       less: [
-      //         'vue-style-loader',
-      //         {
-      //           loader: 'css-loader',
-      //           options: {
-      //             sourceMap: true,
-      //           },
-      //         },
-      //         {
-      //           loader: 'less-loader',
-      //           options: {
-      //             sourceMap: true,
-      //           },
-      //         },
-      //       ],
-      //     },
-      //     postLoaders: {
-      //       html: 'babel-loader?sourceMap',
-      //     },
-      //     sourceMap: true,
-      //   },
-      // },
-      // ts
       {
         test: /\.vue$/,
-        use: {
-          loader: 'vue-loader',
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            ts: 'ts-loader',
+            tsx: 'babel-loader!ts-loader',
+            css: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+            ],
+            less: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+              {
+                loader: 'less-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+            ],
+          },
+          postLoaders: {
+            html: 'babel-loader?sourceMap',
+          },
+          sourceMap: true,
         },
       },
+      // ts
+      // {
+      //   test: /\.vue$/,
+      //   use: {
+      //     loader: 'vue-loader',
+      //   },
+      // },
       // {
       //   test: /\.tsx?$/,
       //   loader: 'ts-loader',
@@ -87,11 +87,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           sourceMap: true,
-          presets: ['env'],
-          plugins: [
-            'transform-decorators-legacy',
-            'transform-class-properties',
-          ],
+          presets: ['@babel/preset-env'],
         },
         exclude: /node_modules/,
       },

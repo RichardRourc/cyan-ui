@@ -4,14 +4,14 @@
       "@babel/preset-env",
       {
         // 原本版本
-        // "loose": false,
+        "loose": false,
         // "modules": "commonjs",
         // "corejs": "2.6.9",
         "spec": true,
         "useBuiltIns": "usage",
         // 新测试的
         "corejs": 3,
-        "modules": false
+        // "modules": false
       }
     ],
     // ["env", { "modules": false }]
@@ -27,7 +27,7 @@
       {
         "corejs": false,
         "helpers": true,
-        "useESModules": false,
+        "useESModules": true,
         "regenerator": true,
         "absoluteRuntime": "./node_modules"
       }],
