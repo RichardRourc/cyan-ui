@@ -1,7 +1,7 @@
 
 =============================== Coverage summary ===============================
-Statements   : Unknown% ( 0/0 )
-Branches     : Unknown% ( 0/0 )
-Functions    : Unknown% ( 0/0 )
-Lines        : Unknown% ( 0/0 )
+Statements   : 100% ( 2/2 )
+Branches     : 50% ( 2/4 )
+Functions    : 100% ( 0/0 )
+Lines        : 100% ( 2/2 )
 ================================================================================

@@ -17,7 +17,8 @@ const webpackConfig = {
   //   chunkFilename: '[id].js',
   // },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    // extensions: ['.js', '.vue', '.json'],
+    extensions: ['.ts', '.vue', '.json', '.js'],
     alias: Object.assign({
       main: path.resolve(__dirname, '../src'),
       packages: path.resolve(__dirname, '../src/packages'),
@@ -43,6 +44,16 @@ const webpackConfig = {
         options: {
           compilerOptions: {
             preserveWhitespace: false,
+          },
+        },
+      },
+      {
+        test: /.tsx?$/,
+        exclude: [/node_modules/],
+        use: {
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/.vue$/],
           },
         },
       },

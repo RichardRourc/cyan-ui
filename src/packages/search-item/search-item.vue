@@ -89,7 +89,7 @@ import {
 } from 'vue-property-decorator'
 
 import { Input, Select, Checkbox, Radio, Option } from 'element-ui'
-import { useComponent } from '../../utils/component.js'
+import { useComponent } from '../../utils/component'
 
 const components = [Input, Select, Checkbox, Radio, Option]
 useComponent(components, Vue)

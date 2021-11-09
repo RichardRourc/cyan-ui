@@ -61,25 +61,41 @@ module.exports = {
       //   loader: 'ts-loader',
       //   options: { appendTsSuffixTo: [/TS\.vue$/] },
       // },
+      // {
+      //   test: /\.tsx?$/,
+      //   exclude: [/node_modules/],
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       appendTsSuffixTo: [/\.vue$/],
+      //       // transpileOnly: true,
+      //     },
+      //   },
+      // },
+      {
+        test: /.tsx?$/,
+        exclude: [/node_modules/],
+        use: {
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/.vue$/],
+          },
+        },
+      },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         options: {
           sourceMap: true,
+          presets: ['env'],
+          plugins: [
+            'transform-decorators-legacy',
+            'transform-class-properties',
+          ],
         },
         exclude: /node_modules/,
       },
-      {
-        test: /\.tsx?$/,
-        exclude: [/node_modules/],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            appendTsSuffixTo: [/\.vue$/],
-            // transpileOnly: true,
-          },
-        },
-      },
+
       {
         test: /\.css$/,
         loaders: [
