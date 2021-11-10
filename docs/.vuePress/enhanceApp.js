@@ -2,7 +2,7 @@ import { Button } from 'vant'
 import { Button as EButton, Select } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import PlatformUI from '../../src/index.js'
+import PlatformUI from '../../src/index'
 import '../../src/styles/index.scss'
 
 import SearchItem from '../../src/packages/search-item/index'

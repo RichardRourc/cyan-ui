@@ -154,7 +154,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.vue', '.json', '.js'],
+    extensions: ['.vue', '.json', '.ts', '.js'],
     alias: {
       vue: 'vue/dist/vue.esm.js',
       '@': resolve('src'),

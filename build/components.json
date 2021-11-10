@@ -1,5 +1,5 @@
 {
-  "button": "packages/button/index.js",
-  "notice": "packages/notice/notice.js",
-  "search-item": "packages/search-item/index.js"
+  "button": "packages/button/index",
+  "notice": "packages/notice/index",
+  "search-item": "packages/search-item/index"
 }

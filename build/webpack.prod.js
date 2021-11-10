@@ -10,7 +10,7 @@ module.exports = merge(webpackBaseConfig, {
   devtool: 'source-map',
   mode: 'production',
   entry: {
-    main: path.resolve(__dirname, '../src/index.js'), // 将src下的index.js 作为入口点
+    main: path.resolve(__dirname, '../src/index'), // 将src下的index.js 作为入口点
   },
   output: {
     path: path.resolve(__dirname, '../lib'),

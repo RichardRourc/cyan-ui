@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Notice from './notice.vue'
-
-Notice.newInstance = properties => {
+;(Notice as any).newInstance = (properties: any) => {
   let props = properties || {}
   const Instance = new Vue({
     render(h) {
@@ -14,19 +13,19 @@ Notice.newInstance = properties => {
   const component = Instance.$mount()
   document.body.appendChild(component.$el)
 
-  const notice = component.$children[0]
+  const notice: any = component.$children[0]
 
   return {
-    add(_notice) {
+    add(_notice: any) {
       notice.add(_notice)
     },
-    remove(id) {},
+    remove(id: any) {},
   }
 }
 
-let noticeInstance
+let noticeInstance: any
 
-export default _notice => {
-  noticeInstance = noticeInstance || Notice.newInstance()
+export default (_notice: any) => {
+  noticeInstance = noticeInstance || (Notice as any).newInstance()
   noticeInstance.add(_notice)
 }

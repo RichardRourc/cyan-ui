@@ -1,5 +1,5 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import SearchItem from '../../src/packages/search-item/index.js'
+import SearchItem from '../../src/packages/search-item/index'
 import { createElm, createVue, triggerEvent } from '../utils/util'
 
 describe('search-item.vue', () => {
