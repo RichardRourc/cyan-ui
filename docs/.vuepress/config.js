@@ -10,10 +10,11 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
   plugins: ['vuepress-plugin-typescript'],
   title: 'Platform UI',
-  description: 'Just playing around',
+  description: '一个组件库',
   themeConfig: {
     nav: [
-      { text: '样例', link: '/' },
+      { text: '首页', link: '/' },
+      { text: '组件', link: '/guide/' },
       { text: 'test', link: '/pages/test.md' },
     ],
     sidebar: {
@@ -30,7 +31,7 @@ module.exports = {
   // configureWebpack: {
   //   resolve: {
   //     // extensions: ['.js', '.vue', '.json'],
-  //     extensions: ['.ts', '.vue', '.json', '.js'],
+  //     extensions: ['.ts', '.vue' , '.json', '.js'],
   //   },
   //   // module: {
   //   //   rules: [
