@@ -1,12 +1,23 @@
 # example
 
-<script>
-  import test from '../pages/components/Button.md'
+[Button 使用说明](../pages/components/Button.md)
 
-  console.log(test,'test')
-</script>
+# plat-search-item
+
+---
 
 <template>
-1
-
+  <plat-search-item v-model="test"></plat-search-item>
 </template>
+
+<script>
+  export default {
+  data(){
+    return {
+      test:'test'
+    }
+  }
+}
+  </script>
+
+[plat-search-item 使用说明](../pages/components/platSearchItem.md)

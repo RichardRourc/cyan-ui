@@ -1,11 +1,9 @@
 <template>
   <section
     class="plat-search-item"
-    :style="
-      `width: ${width}%; min-width: ${minWidth}px; max-width: ${maxWidth}px;`
-    "
+    :style="`width: ${width}%; min-width: ${minWidth}px; max-width: ${maxWidth}px;`"
   >
-    <div v-if="needLabel" class="item-label ">
+    <div v-if="needLabel" class="item-label">
       <label for="label-item">{{ label }}</label>
     </div>
     <slot>
@@ -67,11 +65,9 @@
     <div
       class="search-border"
       v-if="needBorder"
-      :style="
-        `min-height: ${minHeightBorder}px;width:${(borderWidth &&
-          borderWidth) ||
-          'auto'};`
-      "
+      :style="`min-height: ${minHeightBorder}px;width:${
+        (borderWidth && borderWidth) || 'auto'
+      };`"
     >
       <slot name="content"></slot>
     </div>
@@ -97,6 +93,7 @@ useComponent(components, Vue)
 @Component({
   name: 'platSearchItem',
 })
+// 输入框，单选，多选，下拉选择器的方便显示和使用
 export default class SearchItem extends Vue {
   @Prop({ default: () => true, type: Boolean }) needLabel!: boolean
   @Prop({ default: () => false }) needBorder!: boolean

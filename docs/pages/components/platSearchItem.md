@@ -1,5 +1,7 @@
 # platSearchItem
 
+输入框，单选，多选，下拉选择器的方便显示和使用
+
 ## Props
 
 <!-- @vuese:platSearchItem:props:start -->
