@@ -4,11 +4,11 @@ webpack4 打包工具 + vue2.x 框架
 
 - [x] 开发环境本地调试组件
 - [x] 按需引入
-- [ ] 组件 prop 文档
+- [x] 组件 prop 文档 vuese 自动生成对应 md
 - [x] 单元测试 mocha + karma + vue-test-utils + karma-coverage
 - [x] 代码格式化 prettier + eslint
 - [ ] git 提交规范
-- [ ] typescript 文件和 vue 文件的 ts 写法
+- [x] typescript 文件和 vue 文件的 ts 写法
 
 :factory:​ 构建组件库
 
