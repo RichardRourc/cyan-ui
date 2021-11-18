@@ -1,19 +1,44 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    node: true,
-  },
-  extends: [
-    'eslint:recommended',
-    'plugin:vue/essential',
-    'plugin:@typescript-eslint/recommended',
-  ],
+  // env: {
+  //   browser: true,
+  //   es2021: true,
+  //   node: true,
+  // },
+  // extends: [
+  //   'eslint:recommended',
+  //   'plugin:vue/essential',
+  //   'plugin:@typescript-eslint/recommended',
+  // ],
+  // parserOptions: {
+  //   ecmaVersion: 12,
+  //   parser: '@typescript-eslint/parser',
+  //   sourceType: 'script',
+  // },
+  // plugins: ['vue', '@typescript-eslint'],
+  // rules: {},
+
+  root: true,
   parserOptions: {
-    ecmaVersion: 12,
+    sourceType: 'module',
     parser: '@typescript-eslint/parser',
-    sourceType: 'script',
+    ecmaVersion: 12
   },
   plugins: ['vue', '@typescript-eslint'],
-  rules: {},
+  env: {
+    browser: true,
+    node: true,
+    es2021: true
+  },
+  extends: [
+    'plugin:vue/vue3-recommended', // plugin-vue
+    'plugin:prettier/recommended', // plugin-prettier
+
+    'eslint:recommended',
+    'plugin:vue/essential',
+    'plugin:@typescript-eslint/recommended'
+  ],
+
+  rules: {
+    'prettier/prettier': 'error'
+  }
 }
