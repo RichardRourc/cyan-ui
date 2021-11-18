@@ -106,6 +106,8 @@ git-cz
 button/button.vue
 button/index.js
 
+为了按需加载 css，scss文件需要写在 /src/styles/ 下
+
 在/build/components.json 写驼峰式大小写（Camel-Case）命名的组件名和 组件js对应的src位置
 
 然后在@/index.js里
