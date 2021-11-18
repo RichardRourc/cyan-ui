@@ -6,7 +6,7 @@ actionText: 查看组件 →
 actionLink: /guide/
 features:
   - title: 按需加载
-    details: 可使用 babel-component-plugin 按需加载
+    details: 可使用 babel-plugin-component 进行按需加载
   - title: vue2.x + webpack4 + ts
     details: 使用 vue2.x 框架切支持 ts 语法，使用 webpack4 进行打包
   - title: 单元测试

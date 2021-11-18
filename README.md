@@ -10,18 +10,23 @@ webpack4 打包工具 + vue2.x 框架
 - [x] git 提交校验 husky + lint-staged + commitlint + commitizen + editorconfig
 - [x] typescript 文件和 vue 文件的 ts 写法
 
-:factory:​ 构建组件库
-
-```js
-构建组件库 yarn dist
-```
+## :beers: 使用
 
 :running: 本地调试组件库
 
-```js
-本地调试样式 yarn docs:dev
-构建完成后本地调试组件 yarn link
-本地使用该组件库的其他项目 yarn link shanqu-plat-ui
+```sh
+#本地调试样式和查看足见说明文档
+yarn docs:dev
+
+#构建完成后本地调试组件
+yarn link
+```
+
+本地调试其他项目使用该项目
+
+```sh
+#本地使用该组件库的其他项目
+yarn link shanqu-plat-ui
 ```
 
 :heavy_exclamation_mark: 如果项目 link 后，import 报 undefined，就需要设置 webpack.chainWebpack
@@ -78,7 +83,22 @@ arr.forEach(v => {
 Vue.prototype.$notice = Notice
 ```
 
-:hammer: 开发组件
+---
+
+## :hammer: 项目开发相关
+
+#### 项目起步
+
+```sh
+# 安装全局包和项目的包
+yarn global add @vuese/cli commitizen
+yarn
+
+# git 提交信息从 git commit 改成 git-cz
+git-cz
+```
+
+#### 开发组件
 
 ```js
 新建文件夹放@/packages/下
@@ -108,9 +128,24 @@ const install = function(Vue, options = {}) {
 }
 ```
 
+#### 组件说明文档
+
+```sh
+# 根据组件prop和注释等生成 md 文件夹，
+# 把/website/components 文件夹放到 /docs/pages,
+# 在组件说明页面以相对路径链接引入对应的 md 文件。
+vuese gen
+```
+
 :smile: 单元测试
 
 ```js
 >>> yarn test
 运行后单元测试覆盖率报告在coverage/Icov-report/index.html 或者 coverage/text.txt coverage/text-summary.txt
+```
+
+:factory:​ 构建组件库
+
+```js
+构建组件库 yarn dist
 ```
