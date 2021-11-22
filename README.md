@@ -7,7 +7,7 @@ webpack4 打包工具 + vue2.x 框架
 - [x] 组件 prop 文档 vuese 自动生成对应 md
 - [x] 单元测试 mocha + karma + vue-test-utils + karma-coverage
 - [x] 代码格式化 prettier + eslint
-- [x] git 提交校验 husky + lint-staged + commitlint + commitizen + editorconfig
+- [x] git 提交校验 husky6 + lint-staged + commitlint + commitizen + editorconfig
 - [x] typescript 文件和 vue 文件的 ts 写法
 
 ## :beers: 使用
@@ -19,7 +19,7 @@ webpack4 打包工具 + vue2.x 框架
 yarn docs:dev
 
 #构建完成后本地调试组件
-yarn link
+yarn lin
 ```
 
 本地调试其他项目使用该项目

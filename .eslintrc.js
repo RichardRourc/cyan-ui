@@ -18,6 +18,7 @@ module.exports = {
   // rules: {},
 
   root: true,
+  parser: 'vue-eslint-parser',
   parserOptions: {
     sourceType: 'module',
     parser: '@typescript-eslint/parser',
@@ -39,6 +40,7 @@ module.exports = {
   ],
 
   rules: {
+    '@typescript-eslint/no-var-requires': 0, // 不检查 requrie
     'prettier/prettier': 'error'
   }
 }

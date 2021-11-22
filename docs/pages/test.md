@@ -12,6 +12,8 @@ test test one two three
   <el-button @click="test">测试element组件按需引入 and click</el-button>
 
 <plat-search-item></plat-search-item>
+
+<plat-mb-button-back></plat-mb-button-back>
 </template>
 
 <script>

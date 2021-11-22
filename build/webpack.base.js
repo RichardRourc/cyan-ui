@@ -23,150 +23,104 @@ module.exports = {
               {
                 loader: 'css-loader',
                 options: {
-                  sourceMap: true,
-                },
-              },
-            ],
-            less: [
-              'vue-style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true,
-                },
-              },
-              {
-                loader: 'less-loader',
-                options: {
-                  sourceMap: true,
-                },
-              },
-            ],
+                  sourceMap: true
+                }
+              }
+            ]
           },
           postLoaders: {
-            html: 'babel-loader?sourceMap',
+            html: 'babel-loader?sourceMap'
           },
-          sourceMap: true,
-        },
+          sourceMap: true
+        }
       },
-      // ts
-      // {
-      //   test: /\.vue$/,
-      //   use: {
-      //     loader: 'vue-loader',
-      //   },
-      // },
-      // {
-      //   test: /\.tsx?$/,
-      //   loader: 'ts-loader',
-      //   options: { appendTsSuffixTo: [/TS\.vue$/] },
-      // },
-      // {
-      //   test: /\.tsx?$/,
-      //   exclude: [/node_modules/],
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       appendTsSuffixTo: [/\.vue$/],
-      //       // transpileOnly: true,
-      //     },
-      //   },
-      // },
       {
         test: /.tsx?$/,
         exclude: [/node_modules/],
         use: {
           loader: 'ts-loader',
           options: {
-            appendTsSuffixTo: [/.vue$/],
-          },
-        },
+            appendTsSuffixTo: [/.vue$/]
+          }
+        }
       },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
         options: {
           sourceMap: true,
-          presets: ['@babel/preset-env'],
+          presets: ['@babel/preset-env']
         },
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
 
       {
         test: /\.css$/,
         loaders: [
           {
-            loader: 'style-loader',
+            loader: 'style-loader'
           },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.less$/,
-        loaders: [
-          {
-            loader: 'style-loader',
+              sourceMap: true
+            }
           },
           {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
-        ],
-      },
-      {
-        test: /\.scss$/,
-        loaders: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-            },
+            loader: 'postcss-loader'
           },
           {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              implementation: require('sass'),
-            },
+              implementation: require('sass')
+            }
+          }
+        ]
+      },
+
+      {
+        test: /\.scss$/,
+        loaders: [
+          {
+            loader: 'style-loader'
           },
-        ],
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          { loader: 'posscss-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              implementation: require('sass')
+            }
+          }
+        ]
       },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-        loader: 'url-loader?limit=8192',
-      },
-    ],
+        loader: 'url-loader?limit=8192'
+      }
+    ]
   },
   resolve: {
     extensions: ['.vue', '.json', '.ts', '.js'],
     alias: {
       vue: 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-    },
+      '@': resolve('src')
+    }
   },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
-      'process.env.VERSION': `'${pkg.version}'`,
+      'process.env.VERSION': `'${pkg.version}'`
     }),
-    new VueLoaderPlugin(),
-  ],
+    new VueLoaderPlugin()
+  ]
   // alias: {
   //   main: path.resolve(__dirname, '../src'),
   //   packages: path.resolve(__dirname, '../src/packages'),
