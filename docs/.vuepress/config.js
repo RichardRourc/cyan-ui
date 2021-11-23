@@ -29,5 +29,8 @@ module.exports = {
       ]
     }
   },
-  postcss: postcssConfig
+  postcss: postcssConfig,
+  chainWebpack: (config) => {
+    // console.log(config.module.rules.store, 'config')
+  }
 }

@@ -10,14 +10,17 @@
       <img :src="backIcon" alt="" class="icon-back pointer" @click="backTo" />
       <div class="button-name">{{ buttonName }}</div>
     </div>
+    <van-button class="test"></van-button>
   </section>
 </template>
 
 <script lang="ts">
 import { Vue, Prop, Component } from 'vue-property-decorator'
 import { throttle } from '../../utils/index'
+import { Button } from 'vant'
 
 const backIcon = require('../../assets/icon_back.png')
+Vue.use(Button)
 
 @Component({
   name: 'platMbButtonBack'

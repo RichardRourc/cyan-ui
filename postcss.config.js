@@ -7,16 +7,19 @@ module.exports = {
     }),
     pxtorem({
       rootValue({ file }) {
+        // console.log(file, 'file-----')
         let remUnit
         if (file && file.dirname && file.dirname.indexOf('vant') > -1) {
           remUnit = 50
         } else {
           remUnit = 100
         }
+
         return remUnit
       },
       propList: ['*'],
-      selectorBlackList: []
+      selectorBlackList: [],
+      exclude: /node_modules/i
     })
   ]
 }
