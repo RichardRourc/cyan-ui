@@ -65,33 +65,18 @@ module.exports = {
             options: {
               sourceMap: true
             }
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              implementation: require('sass')
-            }
           }
         ]
+      },
+      // md-xxx.css 转换postcss-loader
+      {
+        test: /^mb-\S*\.css$/,
+        use: { loader: 'postcss-loader' }
       },
 
       {
         test: /\.scss$/,
         loaders: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          { loader: 'posscss-loader' },
           {
             loader: 'sass-loader',
             options: {

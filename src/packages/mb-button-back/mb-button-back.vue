@@ -30,7 +30,7 @@ export default class ButtonBack extends Vue {
   // @Prop({ default: () => false }) routeObj
   @Prop({
     default: () => {
-      return () => {
+      return function () {
         return true
       }
     }
@@ -88,6 +88,8 @@ export default class ButtonBack extends Vue {
       // 在token失效拦截返回时由于会修改路由，可能导致路由混乱跳转错误问题
       // if (this.$route.path === this.path) {
       if (await this.onBack()) {
+        console.log('test back to')
+        this.$emit('on-back')
         // if (this.routeObj) {
         //   this.$router.push(this.routeObj)
         // } else {

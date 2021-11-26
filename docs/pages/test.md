@@ -13,7 +13,7 @@ test test one two three
 
 <plat-search-item></plat-search-item>
 
-<plat-mb-button-back></plat-mb-button-back>
+<plat-mb-button-back @on-back="test"></plat-mb-button-back>
 </template>
 
 <script>

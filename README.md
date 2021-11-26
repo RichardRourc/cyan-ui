@@ -19,7 +19,7 @@ webpack4 打包工具 + vue2.x 框架
 yarn docs:dev
 
 #构建完成后本地调试组件
-yarn lin
+yarn link
 ```
 
 本地调试其他项目使用该项目
