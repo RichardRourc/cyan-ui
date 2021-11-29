@@ -3,6 +3,34 @@ const path = require('path')
 const webpack = require('webpack')
 const pkg = require('../package.json')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const autoprefixer = require('autoprefixer')
+const pxtorem = require('postcss-pxtorem')
+
+const postcssConfig = {
+  plugins: [
+    autoprefixer({
+      overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
+    })
+    // pxtorem({
+    //   rootValue({ file }) {
+    //     // console.log(file, 'file-----')
+    //     let remUnit
+    //     if (file && file.dirname && file.dirname.indexOf('vant') > -1) {
+    //       remUnit = 50
+    //     } else {
+    //       remUnit = 100
+    //     }
+
+    //     return remUnit
+    //   },
+    //   propList: ['*'],
+    //   selectorBlackList: [],
+    //   exclude: /node_modules/i
+    // })
+  ]
+}
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -56,35 +84,74 @@ module.exports = {
 
       {
         test: /\.css$/,
-        loaders: [
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
           {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: 'postcss-loader',
+            options: postcssConfig
           }
         ]
       },
       // md-xxx.css 转换postcss-loader
       {
-        test: /^mb-\S*\.css$/,
-        use: { loader: 'postcss-loader' }
-      },
+        test: /^m-\S*\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                autoprefixer({
+                  overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
+                }),
+                pxtorem({
+                  rootValue({ file }) {
+                    let remUnit
+                    if (
+                      file &&
+                      file.dirname &&
+                      file.dirname.indexOf('vant') > -1
+                    ) {
+                      remUnit = 50
+                    } else {
+                      remUnit = 100
+                    }
 
-      {
-        test: /\.scss$/,
-        loaders: [
+                    return remUnit
+                  },
+                  propList: ['*'],
+                  selectorBlackList: [],
+                  exclude: /node_modules/i
+                })
+              ]
+            }
+          },
           {
             loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              implementation: require('sass')
-            }
+            options: { implementation: require('sass') }
           }
         ]
+      },
+      // scss
+      {
+        test: /\.s[ac]ss$/,
+        use: [
+          {
+            loader: 'sass-loader',
+            options: { implementation: require('sass') }
+          }
+        ]
+        // loaders: [
+        //   {
+        //     loader: 'sass-loader',
+        //     options: {
+        //       sourceMap: true,
+        //       implementation: require('sass')
+        //     }
+        //   }
+        // ]
       },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
@@ -104,7 +171,8 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.VERSION': `'${pkg.version}'`
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({ filename: 'lib/styles/[name].css' })
   ]
   // alias: {
   //   main: path.resolve(__dirname, '../src'),

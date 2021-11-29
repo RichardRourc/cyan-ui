@@ -3,7 +3,7 @@
 @import 'common/var';
 @import 'mixins/mixins';
 
-@include b(mb-button-back) {
+@include b(m-button-back) {
   height: 92px;
   padding: 24px;
   padding-left: 32px;

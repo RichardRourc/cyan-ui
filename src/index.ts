@@ -1,6 +1,6 @@
 import Button from './packages/button'
 import SearchItem from './packages/search-item'
-import MbButtonBack from './packages/mb-button-back'
+import MbButtonBack from './packages/m-button-back'
 import Notice from './packages/notice'
 
 const components: any = {
@@ -14,7 +14,7 @@ const install = function (Vue: any, options = {}) {
     Vue.component(key, components[key])
   })
 
-  console.log(Notice, 'test Notice')
+  // console.log(Notice, 'test Notice')
   Vue.prototype.$notice = Notice
 }
 

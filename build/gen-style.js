@@ -18,7 +18,7 @@ function buildCss(cb) {
 }
 
 function buildSeperateCss(cb) {
-  Object.keys(components).forEach(compName => {
+  Object.keys(components).forEach((compName) => {
     gulp
       .src(`../src/styles/${compName}.scss`)
       .pipe(sass())
