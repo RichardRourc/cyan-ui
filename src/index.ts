@@ -1,3 +1,5 @@
+import './styles/index'
+
 import Button from './packages/button'
 import SearchItem from './packages/search-item'
 import MbButtonBack from './packages/m-button-back'
