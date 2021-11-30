@@ -136,8 +136,10 @@ module.exports = {
       },
       // scss
       {
-        test: /\.s[ac]ss$/,
+        test: /^[^m-]\S*\.scss/,
         use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
           {
             loader: 'sass-loader',
             options: { implementation: require('sass') }

@@ -121,8 +121,8 @@ export default class ButtonBack extends Vue {
 <style lang="scss">
 /* button.scss */
 @charset "UTF-8";
-@import 'common/var';
-@import 'mixins/mixins';
+@import '../../styles/common/var';
+@import '../../styles/mixins/mixins';
 
 @include b(m-button-back) {
   height: 92px;
