@@ -1,4 +1,4 @@
-import './styles/index'
+import './styles/index.scss'
 
 import Button from './packages/button'
 import SearchItem from './packages/search-item'

@@ -40,6 +40,148 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: postcssConfig
+          }
+        ]
+      },
+      // scss
+      // {
+      //   test: /^[^m-]\S*\.scss$/,
+      //   use: [
+      //     MiniCssExtractPlugin.loader,
+      //     'css-loader',
+      //     {
+      //       loader: 'postcss-loader',
+      //       options: {
+      //         postcssOptions: {
+      //           plugins: [
+      //             autoprefixer({
+      //               overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
+      //             }),
+      //             pxtorem({
+      //               rootValue({ file }) {
+      //                 let remUnit
+      //                 if (
+      //                   file &&
+      //                   file.dirname &&
+      //                   file.dirname.indexOf('vant') > -1
+      //                 ) {
+      //                   remUnit = 50
+      //                 } else {
+      //                   remUnit = 100
+      //                 }
+
+      //                 return remUnit
+      //               },
+      //               propList: ['*'],
+      //               selectorBlackList: [],
+      //               exclude: /node_modules/i
+      //             })
+      //           ]
+      //         }
+      //       }
+      //     },
+      //     {
+      //       loader: 'sass-loader',
+      //       options: { implementation: require('sass') }
+      //     }
+      //   ],
+      //   include: path.resolve(__dirname, '../src/packages/mobile')
+      // },
+      {
+        test: /^[^m-]\S*\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  autoprefixer({
+                    overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
+                  }),
+                  pxtorem({
+                    rootValue({ file }) {
+                      let remUnit
+                      if (
+                        file &&
+                        file.dirname &&
+                        file.dirname.indexOf('vant') > -1
+                      ) {
+                        remUnit = 50
+                      } else {
+                        remUnit = 100
+                      }
+
+                      return remUnit
+                    },
+                    propList: ['*'],
+                    selectorBlackList: [],
+                    exclude: /node_modules/i
+                  })
+                ]
+              }
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: { implementation: require('sass') }
+          }
+        ],
+        include: /^m-\S*/
+        // exclude: path.resolve(__dirname, '../src/packages/mobile')
+      },
+
+      // md-xxx.css 转换postcss-loader
+      // {
+      //   test: /^m-\S*\.s[ac]ss$/,
+      //   use: [
+      //     MiniCssExtractPlugin.loader,
+      //     'css-loader',
+      //     {
+      //       loader: 'postcss-loader',
+      //       options: {
+      //         plugins: [
+      //           autoprefixer({
+      //             overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
+      //           }),
+      //           pxtorem({
+      //             rootValue({ file }) {
+      //               let remUnit
+      //               if (
+      //                 file &&
+      //                 file.dirname &&
+      //                 file.dirname.indexOf('vant') > -1
+      //               ) {
+      //                 remUnit = 50
+      //               } else {
+      //                 remUnit = 100
+      //               }
+
+      //               return remUnit
+      //             },
+      //             propList: ['*'],
+      //             selectorBlackList: [],
+      //             exclude: /node_modules/i
+      //           })
+      //         ]
+      //       }
+      //     },
+      //     {
+      //       loader: 'sass-loader',
+      //       options: { implementation: require('sass') }
+      //     }
+      //   ]
+      // },
+
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -81,80 +223,6 @@ module.exports = {
         },
         exclude: /node_modules/
       },
-
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: postcssConfig
-          }
-        ]
-      },
-      // md-xxx.css 转换postcss-loader
-      {
-        test: /^m-\S*\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [
-                autoprefixer({
-                  overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
-                }),
-                pxtorem({
-                  rootValue({ file }) {
-                    let remUnit
-                    if (
-                      file &&
-                      file.dirname &&
-                      file.dirname.indexOf('vant') > -1
-                    ) {
-                      remUnit = 50
-                    } else {
-                      remUnit = 100
-                    }
-
-                    return remUnit
-                  },
-                  propList: ['*'],
-                  selectorBlackList: [],
-                  exclude: /node_modules/i
-                })
-              ]
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: { implementation: require('sass') }
-          }
-        ]
-      },
-      // scss
-      {
-        test: /^[^m-]\S*\.scss/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: { implementation: require('sass') }
-          }
-        ]
-        // loaders: [
-        //   {
-        //     loader: 'sass-loader',
-        //     options: {
-        //       sourceMap: true,
-        //       implementation: require('sass')
-        //     }
-        //   }
-        // ]
-      },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
         loader: 'url-loader?limit=8192'
@@ -174,7 +242,9 @@ module.exports = {
       'process.env.VERSION': `'${pkg.version}'`
     }),
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({ filename: 'lib/styles/[name].css' })
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].css'
+    })
   ]
   // alias: {
   //   main: path.resolve(__dirname, '../src'),
