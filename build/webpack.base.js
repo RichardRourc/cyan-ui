@@ -50,52 +50,10 @@ module.exports = {
           }
         ]
       },
-      // scss
-      // {
-      //   test: /^[^m-]\S*\.scss$/,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         postcssOptions: {
-      //           plugins: [
-      //             autoprefixer({
-      //               overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
-      //             }),
-      //             pxtorem({
-      //               rootValue({ file }) {
-      //                 let remUnit
-      //                 if (
-      //                   file &&
-      //                   file.dirname &&
-      //                   file.dirname.indexOf('vant') > -1
-      //                 ) {
-      //                   remUnit = 50
-      //                 } else {
-      //                   remUnit = 100
-      //                 }
 
-      //                 return remUnit
-      //               },
-      //               propList: ['*'],
-      //               selectorBlackList: [],
-      //               exclude: /node_modules/i
-      //             })
-      //           ]
-      //         }
-      //       }
-      //     },
-      //     {
-      //       loader: 'sass-loader',
-      //       options: { implementation: require('sass') }
-      //     }
-      //   ],
-      //   include: path.resolve(__dirname, '../src/packages/mobile')
-      // },
       {
-        test: /^[^m-]\S*\.scss$/,
+        test: /.scss$/,
+
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -123,8 +81,8 @@ module.exports = {
                       return remUnit
                     },
                     propList: ['*'],
-                    selectorBlackList: [],
-                    exclude: /node_modules/i
+                    // 如果不是plat-m开头的css文件都不转换
+                    selectorBlackList: [/^\.(?!plat-m)\S*/]
                   })
                 ]
               }
@@ -134,52 +92,8 @@ module.exports = {
             loader: 'sass-loader',
             options: { implementation: require('sass') }
           }
-        ],
-        include: /^m-\S*/
-        // exclude: path.resolve(__dirname, '../src/packages/mobile')
+        ]
       },
-
-      // md-xxx.css 转换postcss-loader
-      // {
-      //   test: /^m-\S*\.s[ac]ss$/,
-      //   use: [
-      //     MiniCssExtractPlugin.loader,
-      //     'css-loader',
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         plugins: [
-      //           autoprefixer({
-      //             overrideBrowserslist: ['last 10 versions', 'android >= 4.0']
-      //           }),
-      //           pxtorem({
-      //             rootValue({ file }) {
-      //               let remUnit
-      //               if (
-      //                 file &&
-      //                 file.dirname &&
-      //                 file.dirname.indexOf('vant') > -1
-      //               ) {
-      //                 remUnit = 50
-      //               } else {
-      //                 remUnit = 100
-      //               }
-
-      //               return remUnit
-      //             },
-      //             propList: ['*'],
-      //             selectorBlackList: [],
-      //             exclude: /node_modules/i
-      //           })
-      //         ]
-      //       }
-      //     },
-      //     {
-      //       loader: 'sass-loader',
-      //       options: { implementation: require('sass') }
-      //     }
-      //   ]
-      // },
 
       {
         test: /\.vue$/,

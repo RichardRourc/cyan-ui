@@ -1,13 +1,15 @@
+import '@/styles/notice.scss'
+
 import Vue from 'vue'
 import Notice from './notice.vue'
 ;(Notice as any).newInstance = (properties: any) => {
-  let props = properties || {}
+  const props = properties || {}
   const Instance = new Vue({
     render(h) {
       return h(Notice, {
-        props,
+        props
       })
-    },
+    }
   })
 
   const component = Instance.$mount()
@@ -18,8 +20,7 @@ import Notice from './notice.vue'
   return {
     add(_notice: any) {
       notice.add(_notice)
-    },
-    remove(id: any) {},
+    }
   }
 }
 

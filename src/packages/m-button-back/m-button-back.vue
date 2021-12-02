@@ -7,7 +7,7 @@
       <img :src="backIcon" alt="" class="icon-back pointer" @click="backTo" />
       <div class="button-name">{{ buttonName }}</div>
     </div>
-    <van-button class="test"></van-button>
+    <van-button class="test">1z</van-button>
   </section>
 </template>
 
@@ -117,58 +117,3 @@ export default class ButtonBack extends Vue {
   }
 }
 </script>
-
-<style lang="scss">
-/* button.scss */
-@charset "UTF-8";
-@import '../../styles/common/var';
-@import '../../styles/mixins/mixins';
-
-@include b(m-button-back) {
-  height: 92px;
-  padding: 24px;
-  padding-left: 32px;
-  padding-right: 40px;
-  cursor: pointer;
-
-  .test {
-    height: 100px;
-  }
-
-  .button-back-content {
-    height: 92px;
-    display: flex;
-    border-bottom: 1px solid transparent;
-
-    &--fixed {
-      z-index: 100;
-      height: 92px;
-      width: 100%;
-      padding: 24px;
-      padding-left: 32px;
-      padding-right: 40px;
-      background-color: #fff;
-      border-color: #ddd;
-
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-  }
-
-  .button-name {
-    margin-left: 24px;
-    height: 32px;
-    font-size: 32px;
-    font-family: PingFangSC-Medium, PingFang SC;
-    font-weight: 500;
-    color: #333333;
-    line-height: 40px;
-  }
-
-  .icon-back {
-    width: 40px;
-    height: 40px;
-  }
-}
-</style>
