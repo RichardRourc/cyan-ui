@@ -1,8 +1,11 @@
 {
   "name": "shanqu-plat-ui",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "lib/plat-ui.min.js",
   "description": "一个组件库",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build:prod": "webpack --config build/webpack.prod.js",
     "build:components": "webpack --config build/webpack.component.js",
@@ -35,6 +38,9 @@
     "vue-property-decorator": "^9.1.2",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"
+  },
+  "peerDependencies": {
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
