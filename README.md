@@ -12,6 +12,14 @@ webpack4 打包工具 + vue2.x 框架
 
 ## :beers: 使用
 
+安装地址
+
+```sh
+git+https://tec-web:20150318@git.shanqu.cc/platform/web/platform-ui.git#v0.1.0
+
+yarn add git+https://tec-web:20150318@git.shanqu.cc/platform/web/platform-ui.git#v0.1.0
+```
+
 :running: 本地调试组件库
 
 ```sh
