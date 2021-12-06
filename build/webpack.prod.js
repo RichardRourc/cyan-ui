@@ -8,10 +8,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 process.env.NODE_ENV = 'production'
 
 module.exports = merge(webpackBaseConfig, {
-  devtool: 'source-map',
   mode: 'production',
   entry: {
-    main: path.resolve(__dirname, '../src/index') // 将src下的index.js 作为入口点
+    'plat-ui': path.resolve(__dirname, '../src/index') // 将src下的index.js 作为入口点
   },
   output: {
     path: path.resolve(__dirname, '../lib'),

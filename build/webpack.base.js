@@ -40,6 +40,48 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        options: {
+          sourceMap: true,
+          presets: ['@babel/preset-env']
+        },
+        exclude: /node_modules/
+      },
+      {
+        test: /.tsx?$/,
+        exclude: [/node_modules/],
+        use: {
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/.vue$/]
+          }
+        }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            ts: 'ts-loader',
+            tsx: 'babel-loader!ts-loader',
+            css: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true
+                }
+              }
+            ]
+          },
+          postLoaders: {
+            html: 'babel-loader?sourceMap'
+          },
+          sourceMap: true
+        }
+      },
+      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -92,49 +134,6 @@ module.exports = {
             options: { implementation: require('sass') }
           }
         ]
-      },
-
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            ts: 'ts-loader',
-            tsx: 'babel-loader!ts-loader',
-            css: [
-              'vue-style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  sourceMap: true
-                }
-              }
-            ]
-          },
-          postLoaders: {
-            html: 'babel-loader?sourceMap'
-          },
-          sourceMap: true
-        }
-      },
-      {
-        test: /.tsx?$/,
-        exclude: [/node_modules/],
-        use: {
-          loader: 'ts-loader',
-          options: {
-            appendTsSuffixTo: [/.vue$/]
-          }
-        }
-      },
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        options: {
-          sourceMap: true,
-          presets: ['@babel/preset-env']
-        },
-        exclude: /node_modules/
       },
       {
         test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
