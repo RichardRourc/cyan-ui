@@ -2,5 +2,6 @@
   "button": "packages/button/index",
   "notice": "packages/notice/index",
   "search-item": "packages/search-item/index",
-  "m-button-back": "packages/m-button-back/index"
+  "m-button-back": "packages/m-button-back/index",
+  "test": "packages/test/index"
 }
