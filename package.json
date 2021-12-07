@@ -11,6 +11,7 @@
     "build:components": "webpack --config build/webpack.component.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
+    "make": "node build/bin/new.js",
     "dist": "npm run build:prod && npm run build:components",
     "test:jest": "jest",
     "test": "karma start ./karma.conf.js",

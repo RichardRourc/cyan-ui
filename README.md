@@ -108,6 +108,11 @@ git-cz
 
 #### 开发组件
 
+```sh
+yarn make bbb
+yarn make aaa-aaa
+```
+
 ```js
 新建文件夹放@/packages/下
 如按钮是button
