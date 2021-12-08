@@ -3,10 +3,11 @@
 module.exports = {
   plugins: ['vuepress-plugin-typescript'],
   title: 'Platform UI',
-  description: '一个组件库',
+  description: '平台组组件库',
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: '组件开发说明', link: '/pages/dev' },
       { text: '组件', link: '/guide/' },
       { text: 'test', link: '/pages/test.md' }
     ],

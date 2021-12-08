@@ -22,8 +22,8 @@ const Files = [
   {
     filename: 'index.ts',
     content: `
-    import '../../styles/${componentname}.scss'
-    import ${ComponentName} from './${componentname}';
+import '../../styles/${componentname}.scss'
+import ${ComponentName} from './${componentname}.vue';
 
 export default ${ComponentName};`
   },
@@ -36,7 +36,7 @@ export default ${ComponentName};`
 
 <script>
 export default {
-  name: 'El${ComponentName}'
+  name: 'Plat${ComponentName}'
 };
 </script>`
   },

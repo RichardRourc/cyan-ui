@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'PlatButton',
   props: {
     type: {
       validator(value) {
@@ -21,17 +21,17 @@ export default {
           'info',
           'success',
           'warning',
-          'error',
+          'error'
         ].includes(value)
       },
       type: String,
-      default: 'default',
-    },
+      default: 'default'
+    }
   },
   mounted() {
     const btn = this.$el
 
-    btn.onclick = event => {
+    btn.onclick = (event) => {
       // 创建波纹小球dom
       const rippleBall = document.createElement('span')
 
@@ -56,7 +56,7 @@ export default {
   methods: {
     handleClick(evt) {
       this.$emit('click', evt)
-    },
-  },
+    }
+  }
 }
 </script>

@@ -9,6 +9,7 @@ webpack4 打包工具 + vue2.x 框架
 - [x] 代码格式化 prettier + eslint
 - [x] git 提交校验 husky6 + lint-staged + commitlint + commitizen + editorconfig
 - [x] typescript 文件和 vue 文件的 ts 写法
+- [x] 可通过命令行自动添加新组件相关文件和修改 src/index 内容
 
 ## :beers: 使用
 
@@ -88,77 +89,18 @@ arr.forEach(v => {
 })
 ----------------
 // 动态组件引入方法
-Vue.prototype.$notice = Notice
+Vue.use(Notice)
 ```
 
 ---
 
-## :hammer: 项目开发相关
-
-#### 项目起步
+:hammer: 项目开发相关
 
 ```sh
-# 安装全局包和项目的包
-yarn global add @vuese/cli commitizen
-yarn
-
-# git 提交信息从 git commit 改成 git-cz
-git-cz
+yarn docs:dev
 ```
 
-#### 开发组件
-
-```sh
-### 进入开发文档查看开发说明
-yarn make bbb
-yarn make aaa-aaa
-```
-
-```js
-新建文件夹放@/packages/下
-如按钮是button
-button/button.vue
-button/index.js
-
-为了按需加载 css，scss文件需要写在 /src/styles/ 下
-
-在/build/components.json 写驼峰式大小写（Camel-Case）命名的组件名和 组件js对应的src位置
-
-然后在@/index.js里
-
-常规组件
-import Button from './packages/button'
-
-const components = {
-  platButton: Button,
-}
-绑定原型的组件
-import Notice from './packages/notice/notice.js'
-
-const install = function(Vue, options = {}) {
-  Object.keys(components).forEach(key => {
-    Vue.component(key, components[key])
-  })
-
-  Vue.prototype.$notice = Notice // 这里绑定原型
-}
-```
-
-#### 组件说明文档
-
-```sh
-# 根据组件prop和注释等生成 md 文件夹，
-# 把/website/components 文件夹放到 /docs/pages,
-# 在组件说明页面以相对路径链接引入对应的 md 文件。
-vuese gen
-```
-
-:smile: 单元测试
-
-```js
->>> yarn test
-运行后单元测试覆盖率报告在coverage/Icov-report/index.html 或者 coverage/text.txt coverage/text-summary.txt
-```
+然后点击进页面的开发说明页面查看组件开发说明
 
 :factory:​ 构建组件库
 

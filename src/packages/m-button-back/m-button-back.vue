@@ -20,9 +20,9 @@ const backIcon = require('../../assets/icon_back.png')
 Vue.use(Button)
 
 @Component({
-  name: 'platMButtonBack'
+  name: 'PlatMButtonBack'
 })
-export default class ButtonBack extends Vue {
+export default class PlatMButtonBack extends Vue {
   @Prop({ default: () => '结算明细' }) buttonName!: string
   // @Prop({ default: () => false }) routeObj
   @Prop({

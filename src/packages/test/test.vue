@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'ElTest'
+  name: 'PlatTest'
 }
 </script>

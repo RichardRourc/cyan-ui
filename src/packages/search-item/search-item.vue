@@ -81,7 +81,7 @@ import {
   Watch,
   Prop,
   Emit,
-  PropSync,
+  PropSync
 } from 'vue-property-decorator'
 
 import { Input, Select, Checkbox, Radio, Option } from 'element-ui'
@@ -91,10 +91,10 @@ const components = [Input, Select, Checkbox, Radio, Option]
 useComponent(components, Vue)
 
 @Component({
-  name: 'platSearchItem',
+  name: 'PlatSearchItem'
 })
 // 输入框，单选，多选，下拉选择器的方便显示和使用
-export default class SearchItem extends Vue {
+export default class PlatSearchItem extends Vue {
   @Prop({ default: () => true, type: Boolean }) needLabel!: boolean
   @Prop({ default: () => false }) needBorder!: boolean
   @Prop({ default: () => 0 }) minHeightBorder!: number
@@ -122,7 +122,7 @@ export default class SearchItem extends Vue {
 
   data() {
     return {
-      name: 'test',
+      name: 'test'
     }
   }
 }

@@ -31,7 +31,7 @@ module.exports = {
     es2021: true
   },
   extends: [
-    'plugin:vue/vue3-recommended', // plugin-vue
+    // 'plugin:vue/vue3-recommended', // plugin-vue
     'plugin:prettier/recommended', // plugin-prettier
 
     'eslint:recommended',
