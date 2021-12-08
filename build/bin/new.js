@@ -18,9 +18,9 @@ const componentname = process.argv[2]
 const ComponentName = uppercamelcase(componentname)
 const PackagePath = path.resolve(__dirname, '../../src/packages', componentname)
 const Files = [
-  // 创建组件的 index.js，组件对象大写，文件名字小写
+  // 创建组件的 index.ts，组件对象大写，文件名字小写
   {
-    filename: 'index.js',
+    filename: 'index.ts',
     content: `import ${ComponentName} from './${componentname}';
 
 /* istanbul ignore next */

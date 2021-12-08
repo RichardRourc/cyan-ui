@@ -1,14 +1,5 @@
 // import webpack from '../../build/webpack.base'
 
-const config = require('../../build/webpack.base')
-const webpack = require('webpack')
-const pkg = require('../../package.json')
-
-const path = require('path')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
-const postcssConfig = require('../../postcss.config')
-
 module.exports = {
   plugins: ['vuepress-plugin-typescript'],
   title: 'Platform UI',

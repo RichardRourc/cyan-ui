@@ -1,4 +1,4 @@
-import '@/styles/notice.scss'
+import '../../styles/notice.scss'
 
 import Vue from 'vue'
 import Notice from './notice.vue'
