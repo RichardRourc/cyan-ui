@@ -21,12 +21,9 @@ const Files = [
   // 创建组件的 index.ts，组件对象大写，文件名字小写
   {
     filename: 'index.ts',
-    content: `import ${ComponentName} from './${componentname}';
-
-/* istanbul ignore next */
-${ComponentName}.install = function(Vue) {
-  Vue.component(${ComponentName}.name, ${ComponentName});
-};
+    content: `
+    import '../../styles/${componentname}.scss'
+    import ${ComponentName} from './${componentname}';
 
 export default ${ComponentName};`
   },
