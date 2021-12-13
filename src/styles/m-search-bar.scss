@@ -1,0 +1,51 @@
+@import 'mixins/mixins';
+@import 'common/var';
+
+@include b(m-search-bar) {
+  transition: 0.2s;
+  display: flex;
+  // justify-content: center;
+
+  align-items: center;
+  margin-top: 8px;
+  padding: 16px 24px;
+  padding-left: 188px;
+  background: #eaeef1;
+  border-radius: 32px;
+
+  &__clicked {
+    padding-left: 24px;
+    // justify-content: space-between;
+  }
+
+  .search-input {
+    height: 28px;
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    color: #666666;
+    flex-grow: 1;
+  }
+
+  .icon-search,
+  .icon-reset {
+    width: 28px;
+    height: 28px;
+  }
+
+  .icon-search {
+    margin-right: 16px;
+  }
+
+  .icon-reset {
+    margin-left: 16px;
+  }
+
+  .search-placeholder {
+    font-size: 28px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(152, 169, 184, 0.5);
+    line-height: 28px;
+  }
+}

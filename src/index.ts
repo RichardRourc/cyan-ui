@@ -6,12 +6,14 @@ import Notice from './packages/notice'
 import SearchItem from './packages/search-item'
 import MButtonBack from './packages/m-button-back'
 import Test from './packages/test'
+import MSearchBar from './packages/m-search-bar'
 
-const components = [Button, Notice, SearchItem, MButtonBack, Test]
+const components = [Button, SearchItem, MButtonBack, Test, MSearchBar]
 
 const install = function (Vue: any) {
   components.forEach((component) => {
     Vue.component(component.name, component)
+    console.log(component, component.name)
   })
 
   Vue.prototype.$notice = Notice

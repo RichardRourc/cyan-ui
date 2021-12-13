@@ -9,9 +9,10 @@
 
 <script>
 export default {
+  name: 'PlatNotice',
   data() {
     return {
-      notices: [],
+      notices: []
     }
   },
   methods: {
@@ -32,7 +33,7 @@ export default {
           break
         }
       }
-    },
-  },
+    }
+  }
 }
 </script>

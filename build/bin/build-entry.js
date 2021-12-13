@@ -19,7 +19,7 @@ const components = [
 
 const install = function(Vue:any) {
   components.forEach(component => {
-    Vue.component(component.name, component);
+      Vue.component(component.name, component);  
   });
 
   Vue.prototype.$notice = Notice;
@@ -50,7 +50,7 @@ ComponentNames.forEach((name) => {
     })
   )
 
-  if (['notice'].indexOf(componentName) === -1) {
+  if (['Notice'].indexOf(componentName) === -1) {
     installTemplate.push(
       render(INSTALL_COMPONENT_TEMPLATE, {
         name: componentName,

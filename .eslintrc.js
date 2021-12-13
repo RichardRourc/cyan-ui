@@ -41,6 +41,8 @@ module.exports = {
 
   rules: {
     '@typescript-eslint/no-var-requires': 0, // 不检查 requrie
+    '@typescript-eslint/no-extra-semi': 1, // 不检查特殊分号
+
     'prettier/prettier': 'error'
   }
 }

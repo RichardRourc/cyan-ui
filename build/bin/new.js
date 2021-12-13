@@ -61,7 +61,10 @@ describe('${ComponentName}', () => {
   // 添加style
   {
     filename: path.join('../../styles', `${componentname}.scss`),
-    content: `@import "mixins/mixins";
+    content: `
+/* ${componentname}.scss */
+@charset "UTF-8";
+@import "mixins/mixins";
 @import "common/var";
 
 @include b(${componentname}) {

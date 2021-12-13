@@ -13,7 +13,8 @@
 
 <plat-search-item></plat-search-item>
 
-<plat-mb-button-back @on-back="test"></plat-mb-button-back>
+<plat-m-button-back @on-back="test"></plat-m-button-back>
+<plat-m-search-bar></plat-m-search-bar>
 </template>
 
 <script>
