@@ -11,9 +11,11 @@ import MSearchBar from './packages/m-search-bar'
 const components = [Button, SearchItem, MButtonBack, Test, MSearchBar]
 
 const install = function (Vue: any) {
-  components.forEach((component) => {
-    Vue.component(component.name, component)
-    console.log(component, component.name)
+  components.forEach((component: any) => {
+    const name =
+      (component.extendOptions && component.extendOptions.name) ||
+      component.name
+    Vue.component(name, component)
   })
 
   Vue.prototype.$notice = Notice

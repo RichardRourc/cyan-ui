@@ -1,41 +1,42 @@
 <template>
-  <div class="plat-m-search-bar">
-    <div class="plat-m-search-bar padding-40">
-      <div
-        class="search-bar"
-        :class="{ 'search-bar__clicked': isSearchClick || keyword }"
-        @click="handleSearchClick"
-      >
-        <img
-          src="../../assets/icon_search.png"
-          alt=""
-          class="icon-search pointer"
-          @click.stop="refresh"
+  <div
+    class="plat-m-search-bar"
+    :class="{ 'plat-m-search-bar__clicked': isSearchClick || keyword }"
+    @click="handleSearchClick"
+  >
+    <div
+      class="search-bar-wrap"
+      :class="{ 'search-bar-wrap__clicked': isSearchClick || keyword }"
+    >
+      <img
+        src="../../assets/icon_search.png"
+        alt=""
+        class="icon-search pointer"
+        @click.stop="refresh"
+      />
+      <!-- 如果没有点击，且没有关键词              -->
+      <template v-if="!isSearchClick && !keyword">
+        <div class="search-placeholder">输入关键词进行搜索</div>
+      </template>
+      <template v-if="isSearchClick || keyword">
+        <input
+          ref="searchInput"
+          class="search-input"
+          type="text"
+          v-model="keyword"
+          @blur="handleSearchBlur"
+          @keyup.enter="refresh"
         />
-        <!-- 如果没有点击，且没有关键词              -->
-        <template v-if="!isSearchClick && !keyword">
-          <div class="search-placeholder">输入关键词进行搜索</div>
-        </template>
-        <template v-if="isSearchClick || keyword">
-          <input
-            ref="searchInput"
-            class="search-input"
-            type="text"
-            v-model="keyword"
-            @blur="handleSearchBlur"
-            @keyup.enter="refresh"
-          />
-          <!-- 重置图标 -->
-          <img
-            v-if="showIcon"
-            @click.stop="handleResetClick"
-            src="../../assets/icon_reset.png"
-            alt=""
-            class="icon-reset pointer"
-          />
-          <div class="icon-reset" v-else></div>
-        </template>
-      </div>
+        <!-- 重置图标 -->
+        <img
+          v-if="showIcon"
+          @click.stop="handleResetClick"
+          src="../../assets/icon_reset.png"
+          alt=""
+          class="icon-reset pointer"
+        />
+        <div class="icon-reset" v-else></div>
+      </template>
     </div>
   </div>
 </template>

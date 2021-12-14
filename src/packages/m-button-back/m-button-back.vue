@@ -7,7 +7,6 @@
       <img :src="backIcon" alt="" class="icon-back pointer" @click="backTo" />
       <div class="button-name">{{ buttonName }}</div>
     </div>
-    <van-button class="test">1z</van-button>
   </section>
 </template>
 

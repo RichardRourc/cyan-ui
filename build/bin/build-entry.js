@@ -18,8 +18,9 @@ const components = [
 ];
 
 const install = function(Vue:any) {
-  components.forEach(component => {
-      Vue.component(component.name, component);  
+  components.forEach((component:any) => {
+      var name = (component.extendOptions && component.extendOptions.name) || component.name
+      Vue.component(name, component);  
   });
 
   Vue.prototype.$notice = Notice;
