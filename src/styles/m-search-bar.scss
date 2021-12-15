@@ -4,7 +4,6 @@
 @include b(m-search-bar) {
   transition: 0.2s;
   display: flex;
-  // justify-content: center;
 
   align-items: center;
   margin-top: 8px;
@@ -15,15 +14,11 @@
 
   &__clicked {
     padding-left: 24px;
-    // justify-content: space-between;
   }
 
   .search-bar-wrap {
     display: flex;
     flex-grow: 1;
-    // &__clicked {
-    //   display: block;
-    // }
   }
 
   .search-input {

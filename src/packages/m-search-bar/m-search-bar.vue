@@ -1,31 +1,31 @@
 <template>
   <div
     class="plat-m-search-bar"
-    :class="{ 'plat-m-search-bar__clicked': isSearchClick || keyword }"
+    :class="{ 'plat-m-search-bar__clicked': isSearchClick || keywordCopy }"
     @click="handleSearchClick"
   >
     <div
       class="search-bar-wrap"
-      :class="{ 'search-bar-wrap__clicked': isSearchClick || keyword }"
+      :class="{ 'search-bar-wrap__clicked': isSearchClick || keywordCopy }"
     >
       <img
         src="../../assets/icon_search.png"
         alt=""
         class="icon-search pointer"
-        @click.stop="refresh"
+        @click.stop="search"
       />
       <!-- 如果没有点击，且没有关键词              -->
-      <template v-if="!isSearchClick && !keyword">
+      <template v-if="!isSearchClick && !keywordCopy">
         <div class="search-placeholder">输入关键词进行搜索</div>
       </template>
-      <template v-if="isSearchClick || keyword">
+      <template v-if="isSearchClick || keywordCopy">
         <input
           ref="searchInput"
           class="search-input"
           type="text"
-          v-model="keyword"
+          v-model="keywordCopy"
           @blur="handleSearchBlur"
-          @keyup.enter="refresh"
+          @keyup.enter="search"
         />
         <!-- 重置图标 -->
         <img
@@ -42,12 +42,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator'
+import { Component, Vue, Watch, Prop, PropSync } from 'vue-property-decorator'
 
 @Component({
   name: 'PlatMSearchBar'
 })
 export default class PlatMSearchBar extends Vue {
+  @PropSync('keyword') keywordCopy!: string //传进来的 值
+
   isSearchClick = false
   // 搜索框
   keyword = ''
@@ -74,6 +76,10 @@ export default class PlatMSearchBar extends Vue {
   handleResetClick() {
     this.keyword = ''
     this.isSearchClick = false
+  }
+
+  search() {
+    this.$emit('on-search')
   }
 
   @Watch('isSearchClick')
