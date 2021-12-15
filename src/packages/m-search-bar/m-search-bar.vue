@@ -48,7 +48,7 @@ import { Component, Vue, Watch, Prop, PropSync } from 'vue-property-decorator'
   name: 'PlatMSearchBar'
 })
 export default class PlatMSearchBar extends Vue {
-  @PropSync('keyword') keywordCopy!: string //传进来的 值
+  @PropSync('keyword', { required: true }) keywordCopy!: string //传进来的 值
 
   isSearchClick = false
   // 搜索框
