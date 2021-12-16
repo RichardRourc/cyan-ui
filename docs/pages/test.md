@@ -11,17 +11,28 @@
 	<plat-button type="primary">Click me</plat-button>
   <el-button @click="test">测试element组件按需引入 and click</el-button>
 
-<plat-search-item></plat-search-item>
+<!-- <plat-search-item></plat-search-item> -->
+
+<!-- <plat-search-item searchType="select" :selectValue.sync="selectValue" :statusOpts="testData"></plat-search-item> -->
+<!-- <plat-search-item searchType="select" :selectValue.sync="selectValue" :statusOpts="testData">
+<el-select>
+  <el-option></el-option>
+</el-select>
+</plat-search-item> -->
+
+<plat-search-item searchType="input"></plat-search-item>
 
 <plat-m-button-back @on-back="test"></plat-m-button-back>
-<plat-m-search-bar></plat-m-search-bar>
+<plat-m-search-bar :keyword.sync="content"></plat-m-search-bar>
 </template>
 
 <script>
 export default {
   data(){
     return {
-      content:'test'
+      content:'test',
+      selectValue: '',
+      testData: [{label:'label1',value:"value1"}]
     }
   },
   mounted() {
