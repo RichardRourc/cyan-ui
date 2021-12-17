@@ -5,10 +5,9 @@ import Button from './packages/button'
 import Notice from './packages/notice'
 import SearchItem from './packages/search-item'
 import MButtonBack from './packages/m-button-back'
-import Test from './packages/test'
 import MSearchBar from './packages/m-search-bar'
 
-const components = [Button, SearchItem, MButtonBack, Test, MSearchBar]
+const components = [Button, SearchItem, MButtonBack, MSearchBar]
 
 const install = function (Vue: any) {
   components.forEach((component: any) => {
