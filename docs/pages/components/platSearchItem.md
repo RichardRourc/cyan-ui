@@ -1,10 +1,10 @@
-# platSearchItem
+# PlatSearchItem
 
 输入框，单选，多选，下拉选择器的方便显示和使用
 
 ## Props
 
-<!-- @vuese:platSearchItem:props:start -->
+<!-- @vuese:PlatSearchItem:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
 |needLabel|-|`Boolean`|`false`|true|
@@ -25,27 +25,27 @@
 |minWidth|-|`string | number`|`false`|auto|
 |maxWidth|最小宽度|`string | number`|`false`|auto|
 
-<!-- @vuese:platSearchItem:props:end -->
+<!-- @vuese:PlatSearchItem:props:end -->
 
 
 ## Events
 
-<!-- @vuese:platSearchItem:events:start -->
+<!-- @vuese:PlatSearchItem:events:start -->
 |Event Name|Description|Parameters|
 |---|---|---|
-|inputKeyup|-|-|
+|input-keyup|-|-|
 
-<!-- @vuese:platSearchItem:events:end -->
+<!-- @vuese:PlatSearchItem:events:end -->
 
 
 ## Slots
 
-<!-- @vuese:platSearchItem:slots:start -->
+<!-- @vuese:PlatSearchItem:slots:start -->
 |Name|Description|Default Slot Content|
 |---|---|---|
 |default|-|输入框默认插槽|
 |content|-|-|
 
-<!-- @vuese:platSearchItem:slots:end -->
+<!-- @vuese:PlatSearchItem:slots:end -->
 
 

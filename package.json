@@ -1,5 +1,5 @@
 {
-  "name": "shanqu-plat-ui",
+  "name": "@shanquweb/shanqu-plat-ui",
   "version": "0.1.0",
   "main": "lib/plat-ui.min.js",
   "description": "一个组件库",
@@ -118,5 +118,8 @@
     "vue-style-loader": "^4.1.2",
     "vuepress": "^1.0.3",
     "vuepress-plugin-typescript": "^0.3.1"
+  },
+  "publishConfig": {
+    "registry": "https://npms.shanqu.cc/"
   }
 }

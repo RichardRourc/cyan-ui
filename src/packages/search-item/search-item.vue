@@ -115,7 +115,7 @@ export default class PlatSearchItem extends Vue {
   @Prop({ default: () => 'auto' }) maxWidth!: string | number
 
   handleKeyup() {
-    this.$emit('inputKeyup')
+    this.$emit('input-keyup')
   }
 }
 </script>
