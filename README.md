@@ -16,9 +16,7 @@ webpack4 打包工具 + vue2.x 框架
 安装地址
 
 ```sh
-git+https://tec-web:20150318@git.shanqu.cc/platform/web/platform-ui.git#v0.1.0
-
-yarn add git+https://tec-web:20150318@git.shanqu.cc/platform/web/platform-ui.git#v0.1.0
+yarn add @shanquweb/shanqu-plat-ui
 ```
 
 :running: 本地调试组件库
@@ -48,8 +46,8 @@ config.resolve.set('symlinks', false)
 
 ```js
 全量加载：
-import PlatUI from "shanqu-plat-ui"
-import "shanqu-plat-ui/lib/styles/plat-ui.css"
+import PlatUI from "@shanquweb/shanqu-plat-ui"
+import "@shanquweb/shanqu-plat-ui/lib/styles/plat-ui.css"
 
 Vue.use(PlatUI)
 
@@ -61,7 +59,7 @@ plugins: [
     [
       "component",
       {
-        libraryName: "shanqu-plat-ui",
+        libraryName: "@shanquweb/shanqu-plat-ui",
         libDir: "lib",
         styleLibrary: {
           name: "styles",
@@ -74,7 +72,7 @@ plugins: [
 
 // main.js
 import Vue from "Vue"
-import {Button,Notice,SearchItem} from "shanqu-plat-ui"
+import {Button,Notice,SearchItem} from "@shanquweb/shanqu-plat-ui"
 
 // 普通vue组件引入方法
 var arr = [Button,SearchItem]
