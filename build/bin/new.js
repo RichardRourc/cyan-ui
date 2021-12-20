@@ -25,6 +25,12 @@ const Files = [
 import '../../styles/${componentname}.scss'
 import ${ComponentName} from './${componentname}.vue';
 
+import {getCompName} from './utils/component'
+;(${ComponentName} as any).install = function (Vue:any) {
+  Vue.component(${ComponentName}.getCompName(${ComponentName},${ComponentName}))
+}
+
+
 export default ${ComponentName};`
   },
   // 创建组件的xxx.vue
