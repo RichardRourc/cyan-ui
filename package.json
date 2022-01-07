@@ -1,6 +1,6 @@
 {
   "name": "@shanquweb/shanqu-plat-ui",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "lib/plat-ui.min.js",
   "description": "一个组件库",
   "files": [
@@ -78,7 +78,6 @@
     "gulp-autoprefixer": "^7.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
     "husky": "^7.0.0",
     "jest": "^27.3.1",
     "json-templater": "^1.2.0",

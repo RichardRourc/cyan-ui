@@ -1,44 +1,48 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add -D postcss-pxtorem @5.1.1
+  /usr/local/bin/node /usr/local/bin/yarn
 
 PATH: 
-  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.22.17
 
 Node version: 
-  14.16.0
+  16.13.1
 
 Platform: 
-  darwin x64
+  darwin arm64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/@5.1.1: Request "https://registry.npm.taobao.org/@5.1.1" returned a 405
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:67038:18)
-      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140883:22)
-      at Request.emit (events.js:315:20)
-      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141855:10)
-      at Request.emit (events.js:315:20)
-      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141777:12)
-      at Object.onceWrapper (events.js:421:28)
-      at IncomingMessage.emit (events.js:327:22)
-      at endReadableNT (internal/streams/readable.js:1327:12)
-      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+  Error: https://registry.nlark.com/gh-pages/download/gh-pages-2.2.0.tgz: Request failed "500 Internal Server Error"
+      at ResponseError.ExtendableBuiltin (/usr/local/lib/node_modules/yarn/lib/cli.js:696:66)
+      at new ResponseError (/usr/local/lib/node_modules/yarn/lib/cli.js:802:124)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:67099:16)
+      at Request.emit (node:events:390:28)
+      at Request.module.exports.Request.onRequestResponse (/usr/local/lib/node_modules/yarn/lib/cli.js:141760:10)
+      at ClientRequest.emit (node:events:390:28)
+      at HTTPParser.parserOnIncomingClient (node:_http_client:623:27)
+      at HTTPParser.parserOnHeadersComplete (node:_http_common:128:17)
+      at HTTPParser.execute (<anonymous>)
+      at TLSSocket.socketOnData (node:_http_client:487:22)
 
 npm manifest: 
   {
-    "name": "shanqu-plat-ui",
-    "version": "1.0.0",
+    "name": "@shanquweb/shanqu-plat-ui",
+    "version": "0.1.1",
     "main": "lib/plat-ui.min.js",
     "description": "一个组件库",
+    "files": [
+      "lib"
+    ],
     "scripts": {
-      "build:style": "gulp --gulpfile build/gen-style.js",
       "build:prod": "webpack --config build/webpack.prod.js",
       "build:components": "webpack --config build/webpack.component.js",
+      "build-file": "node build/bin/build-entry.js",
       "docs:dev": "vuepress dev docs",
       "docs:build": "vuepress build docs",
-      "dist": "npm run build:style && npm run build:prod && npm run build:components",
+      "make": "node build/bin/new.js",
+      "dist": "npm run build-file && npm run build:prod && npm run build:components",
       "test:jest": "jest",
       "test": "karma start ./karma.conf.js",
       "prepare": "husky install",
@@ -65,6 +69,9 @@ npm manifest:
       "vue-property-decorator": "^9.1.2",
       "webpack": "^4.39.2",
       "webpack-cli": "^3.3.7"
+    },
+    "peerDependencies": {
+      "vue": "^2.5.17"
     },
     "devDependencies": {
       "@babel/core": "^7.5.5",
@@ -94,14 +101,15 @@ npm manifest:
       "eslint-plugin-prettier": "^4.0.0",
       "eslint-plugin-vue": "^7.16.0",
       "file-loader": "^4.2.0",
+      "file-save": "^0.2.0",
       "gh-pages": "^2.1.1",
       "gulp": "^4.0.2",
       "gulp-autoprefixer": "^7.0.0",
       "gulp-clean-css": "^4.2.0",
       "gulp-rename": "^1.4.0",
-      "gulp-sass": "^4.0.2",
       "husky": "^7.0.0",
       "jest": "^27.3.1",
+      "json-templater": "^1.2.0",
       "karma": "^6.3.6",
       "karma-chai": "^0.1.0",
       "karma-chrome-launcher": "^3.1.0",
@@ -114,9 +122,11 @@ npm manifest:
       "less": "^3.10.2",
       "less-loader": "^5.0.0",
       "lint-staged": "^12.0.2",
+      "mini-css-extract-plugin": "1.2.0",
       "mocha": "^9.1.3",
       "postcss": "^8.3.11",
       "postcss-loader": "4",
+      "postcss-pxtorem": "5.1.1",
       "prettier": "^2.4.1",
       "progress-bar-webpack-plugin": "^2.1.0",
       "rimraf": "^3.0.0",
@@ -127,26 +137,18 @@ npm manifest:
       "style-loader": "^1.0.0",
       "ts-loader": "~8.2.0",
       "typescript": "^4.4.4",
+      "uppercamelcase": "^3.0.0",
       "url-loader": "^2.1.0",
+      "vite": "^2.6.14",
+      "vue-eslint-parser": "7",
       "vue-jest": "^3.0.7",
       "vue-loader": "^15.7.1",
       "vue-style-loader": "^4.1.2",
       "vuepress": "^1.0.3",
       "vuepress-plugin-typescript": "^0.3.1"
     },
-    "jest": {
-      "moduleNameMapper": {
-        "^@/(.*)$": "<rootDir>/src/$1"
-      },
-      "moduleFileExtensions": [
-        "js",
-        "json",
-        "vue"
-      ],
-      "transform": {
-        "^.+\\.vue$": "vue-jest",
-        "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-      }
+    "publishConfig": {
+      "registry": "https://npms.shanqu.cc/"
     }
   }
 
@@ -4213,6 +4215,11 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/camelcase/download/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
     integrity sha1-MvxLn82vhF/N9+c7uXysImHwqwo=
   
+  camelcase@^4.1.0:
+    version "4.1.0"
+    resolved "https://registry.npmmirror.com/camelcase/download/camelcase-4.1.0.tgz?cache=0&sync_timestamp=1636945151239&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcamelcase%2Fdownload%2Fcamelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
+    integrity sha1-1UVjW+HjPFQmScaRc+Xeas+uNN0=
+  
   camelcase@^5.0.0, camelcase@^5.2.0, camelcase@^5.3.1:
     version "5.3.1"
     resolved "https://registry.nlark.com/camelcase/download/camelcase-5.3.1.tgz#e3c9b31569e106811df242f715725a1f4c494320"
@@ -6015,6 +6022,114 @@ Lockfile:
       es6-iterator "^2.0.3"
       es6-symbol "^3.1.1"
   
+  esbuild-android-arm64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-android-arm64/download/esbuild-android-arm64-0.13.15.tgz?cache=0&sync_timestamp=1637462928775&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fesbuild-android-arm64%2Fdownload%2Fesbuild-android-arm64-0.13.15.tgz#3fc3ff0bab76fe35dd237476b5d2b32bb20a3d44"
+    integrity sha512-m602nft/XXeO8YQPUDVoHfjyRVPdPgjyyXOxZ44MK/agewFFkPa8tUo6lAzSWh5Ui5PB4KR9UIFTSBKh/RrCmg==
+  
+  esbuild-darwin-64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-darwin-64/download/esbuild-darwin-64-0.13.15.tgz#8e9169c16baf444eacec60d09b24d11b255a8e72"
+    integrity sha512-ihOQRGs2yyp7t5bArCwnvn2Atr6X4axqPpEdCFPVp7iUj4cVSdisgvEKdNR7yH3JDjW6aQDw40iQFoTqejqxvQ==
+  
+  esbuild-darwin-arm64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-darwin-arm64/download/esbuild-darwin-arm64-0.13.15.tgz#1b07f893b632114f805e188ddfca41b2b778229a"
+    integrity sha512-i1FZssTVxUqNlJ6cBTj5YQj4imWy3m49RZRnHhLpefFIh0To05ow9DTrXROTE1urGTQCloFUXTX8QfGJy1P8dQ==
+  
+  esbuild-freebsd-64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-freebsd-64/download/esbuild-freebsd-64-0.13.15.tgz#0b8b7eca1690c8ec94c75680c38c07269c1f4a85"
+    integrity sha512-G3dLBXUI6lC6Z09/x+WtXBXbOYQZ0E8TDBqvn7aMaOCzryJs8LyVXKY4CPnHFXZAbSwkCbqiPuSQ1+HhrNk7EA==
+  
+  esbuild-freebsd-arm64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-freebsd-arm64/download/esbuild-freebsd-arm64-0.13.15.tgz#2e1a6c696bfdcd20a99578b76350b41db1934e52"
+    integrity sha512-KJx0fzEDf1uhNOZQStV4ujg30WlnwqUASaGSFPhznLM/bbheu9HhqZ6mJJZM32lkyfGJikw0jg7v3S0oAvtvQQ==
+  
+  esbuild-linux-32@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-linux-32/download/esbuild-linux-32-0.13.15.tgz#6fd39f36fc66dd45b6b5f515728c7bbebc342a69"
+    integrity sha512-ZvTBPk0YWCLMCXiFmD5EUtB30zIPvC5Itxz0mdTu/xZBbbHJftQgLWY49wEPSn2T/TxahYCRDWun5smRa0Tu+g==
+  
+  esbuild-linux-64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-linux-64/download/esbuild-linux-64-0.13.15.tgz#9cb8e4bcd7574e67946e4ee5f1f1e12386bb6dd3"
+    integrity sha512-eCKzkNSLywNeQTRBxJRQ0jxRCl2YWdMB3+PkWFo2BBQYC5mISLIVIjThNtn6HUNqua1pnvgP5xX0nHbZbPj5oA==
+  
+  esbuild-linux-arm64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-linux-arm64/download/esbuild-linux-arm64-0.13.15.tgz?cache=0&sync_timestamp=1637498766925&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fesbuild-linux-arm64%2Fdownload%2Fesbuild-linux-arm64-0.13.15.tgz#3891aa3704ec579a1b92d2a586122e5b6a2bfba1"
+    integrity sha512-bYpuUlN6qYU9slzr/ltyLTR9YTBS7qUDymO8SV7kjeNext61OdmqFAzuVZom+OLW1HPHseBfJ/JfdSlx8oTUoA==
+  
+  esbuild-linux-arm@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-linux-arm/download/esbuild-linux-arm-0.13.15.tgz#8a00e99e6a0c6c9a6b7f334841364d8a2b4aecfe"
+    integrity sha512-wUHttDi/ol0tD8ZgUMDH8Ef7IbDX+/UsWJOXaAyTdkT7Yy9ZBqPg8bgB/Dn3CZ9SBpNieozrPRHm0BGww7W/jA==
+  
+  esbuild-linux-mips64le@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-linux-mips64le/download/esbuild-linux-mips64le-0.13.15.tgz#36b07cc47c3d21e48db3bb1f4d9ef8f46aead4f7"
+    integrity sha512-KlVjIG828uFPyJkO/8gKwy9RbXhCEUeFsCGOJBepUlpa7G8/SeZgncUEz/tOOUJTcWMTmFMtdd3GElGyAtbSWg==
+  
+  esbuild-linux-ppc64le@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-linux-ppc64le/download/esbuild-linux-ppc64le-0.13.15.tgz?cache=0&sync_timestamp=1637462927819&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fesbuild-linux-ppc64le%2Fdownload%2Fesbuild-linux-ppc64le-0.13.15.tgz#f7e6bba40b9a11eb9dcae5b01550ea04670edad2"
+    integrity sha512-h6gYF+OsaqEuBjeesTBtUPw0bmiDu7eAeuc2OEH9S6mV9/jPhPdhOWzdeshb0BskRZxPhxPOjqZ+/OqLcxQwEQ==
+  
+  esbuild-netbsd-64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-netbsd-64/download/esbuild-netbsd-64-0.13.15.tgz#a2fedc549c2b629d580a732d840712b08d440038"
+    integrity sha512-3+yE9emwoevLMyvu+iR3rsa+Xwhie7ZEHMGDQ6dkqP/ndFzRHkobHUKTe+NCApSqG5ce2z4rFu+NX/UHnxlh3w==
+  
+  esbuild-openbsd-64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-openbsd-64/download/esbuild-openbsd-64-0.13.15.tgz?cache=0&sync_timestamp=1637462928360&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fesbuild-openbsd-64%2Fdownload%2Fesbuild-openbsd-64-0.13.15.tgz#b22c0e5806d3a1fbf0325872037f885306b05cd7"
+    integrity sha512-wTfvtwYJYAFL1fSs8yHIdf5GEE4NkbtbXtjLWjM3Cw8mmQKqsg8kTiqJ9NJQe5NX/5Qlo7Xd9r1yKMMkHllp5g==
+  
+  esbuild-sunos-64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-sunos-64/download/esbuild-sunos-64-0.13.15.tgz?cache=0&sync_timestamp=1637498783394&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fesbuild-sunos-64%2Fdownload%2Fesbuild-sunos-64-0.13.15.tgz#d0b6454a88375ee8d3964daeff55c85c91c7cef4"
+    integrity sha512-lbivT9Bx3t1iWWrSnGyBP9ODriEvWDRiweAs69vI+miJoeKwHWOComSRukttbuzjZ8r1q0mQJ8Z7yUsDJ3hKdw==
+  
+  esbuild-windows-32@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-windows-32/download/esbuild-windows-32-0.13.15.tgz#c96d0b9bbb52f3303322582ef8e4847c5ad375a7"
+    integrity sha512-fDMEf2g3SsJ599MBr50cY5ve5lP1wyVwTe6aLJsM01KtxyKkB4UT+fc5MXQFn3RLrAIAZOG+tHC+yXObpSn7Nw==
+  
+  esbuild-windows-64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-windows-64/download/esbuild-windows-64-0.13.15.tgz?cache=0&sync_timestamp=1637462927131&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fesbuild-windows-64%2Fdownload%2Fesbuild-windows-64-0.13.15.tgz#1f79cb9b1e1bb02fb25cd414cb90d4ea2892c294"
+    integrity sha512-9aMsPRGDWCd3bGjUIKG/ZOJPKsiztlxl/Q3C1XDswO6eNX/Jtwu4M+jb6YDH9hRSUflQWX0XKAfWzgy5Wk54JQ==
+  
+  esbuild-windows-arm64@0.13.15:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild-windows-arm64/download/esbuild-windows-arm64-0.13.15.tgz#482173070810df22a752c686509c370c3be3b3c3"
+    integrity sha512-zzvyCVVpbwQQATaf3IG8mu1IwGEiDxKkYUdA4FpoCHi1KtPa13jeScYDjlW0Qh+ebWzpKfR2ZwvqAQkSWNcKjA==
+  
+  esbuild@^0.13.2:
+    version "0.13.15"
+    resolved "https://registry.npmmirror.com/esbuild/download/esbuild-0.13.15.tgz#db56a88166ee373f87dbb2d8798ff449e0450cdf"
+    integrity sha512-raCxt02HBKv8RJxE8vkTSCXGIyKHdEdGfUmiYb8wnabnaEmHzyW7DCHb5tEN0xU8ryqg5xw54mcwnYkC4x3AIw==
+    optionalDependencies:
+      esbuild-android-arm64 "0.13.15"
+      esbuild-darwin-64 "0.13.15"
+      esbuild-darwin-arm64 "0.13.15"
+      esbuild-freebsd-64 "0.13.15"
+      esbuild-freebsd-arm64 "0.13.15"
+      esbuild-linux-32 "0.13.15"
+      esbuild-linux-64 "0.13.15"
+      esbuild-linux-arm "0.13.15"
+      esbuild-linux-arm64 "0.13.15"
+      esbuild-linux-mips64le "0.13.15"
+      esbuild-linux-ppc64le "0.13.15"
+      esbuild-netbsd-64 "0.13.15"
+      esbuild-openbsd-64 "0.13.15"
+      esbuild-sunos-64 "0.13.15"
+      esbuild-windows-32 "0.13.15"
+      esbuild-windows-64 "0.13.15"
+      esbuild-windows-arm64 "0.13.15"
+  
   escalade@^3.1.1:
     version "3.1.1"
     resolved "https://registry.nlark.com/escalade/download/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
@@ -6540,6 +6655,13 @@ Lockfile:
     dependencies:
       loader-utils "^1.2.3"
       schema-utils "^2.5.0"
+  
+  file-save@^0.2.0:
+    version "0.2.0"
+    resolved "https://registry.npm.taobao.org/file-save/download/file-save-0.2.0.tgz#39b20d0214e656b1417faa3c32d317b678545db7"
+    integrity sha1-ObINAhTmVrFBf6o8MtMXtnhUXbc=
+    dependencies:
+      mkdirp "~0.5.0"
   
   file-uri-to-path@1.0.0:
     version "1.0.0"
@@ -9023,6 +9145,11 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/json-stringify-safe/download/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
     integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
   
+  json-templater@^1.2.0:
+    version "1.2.0"
+    resolved "https://registry.nlark.com/json-templater/download/json-templater-1.2.0.tgz#d12c96c7781d8451d623a8bee9b58f6901a8b15e"
+    integrity sha1-0SyWx3gdhFHWI6i+6bWPaQGosV4=
+  
   json3@^3.3.3:
     version "3.3.3"
     resolved "https://registry.npm.taobao.org/json3/download/json3-3.3.3.tgz#7fc10e375fc5ae42c4705a5cc0aa6f62be305b81"
@@ -9919,6 +10046,15 @@ Lockfile:
       schema-utils "^1.0.0"
       webpack-sources "^1.1.0"
   
+  mini-css-extract-plugin@1.2.0:
+    version "1.2.0"
+    resolved "https://registry.npmmirror.com/mini-css-extract-plugin/download/mini-css-extract-plugin-1.2.0.tgz?cache=0&sync_timestamp=1637170561761&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmini-css-extract-plugin%2Fdownload%2Fmini-css-extract-plugin-1.2.0.tgz#f1bdfa7bb6f6a238bc327f813f204283ea33ee36"
+    integrity sha1-8b36e7b2oji8Mn+BPyBCg+oz7jY=
+    dependencies:
+      loader-utils "^2.0.0"
+      schema-utils "^3.0.0"
+      webpack-sources "^1.1.0"
+  
   minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
     version "1.0.1"
     resolved "https://registry.nlark.com/minimalistic-assert/download/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
@@ -9979,7 +10115,7 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/mkdirp/download/mkdirp-0.3.0.tgz#1bbf5ab1ba827af23575143490426455f481fe1e"
     integrity sha1-G79asbqCevI1dRQ0kEJkVfSB/h4=
   
-  "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.1:
+  "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0.5.5, mkdirp@~0.5.0, mkdirp@~0.5.1:
     version "0.5.5"
     resolved "https://registry.npm.taobao.org/mkdirp/download/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
     integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
@@ -11293,6 +11429,13 @@ Lockfile:
       postcss "^7.0.0"
       postcss-value-parser "^3.0.0"
   
+  postcss-pxtorem@5.1.1:
+    version "5.1.1"
+    resolved "https://registry.nlark.com/postcss-pxtorem/download/postcss-pxtorem-5.1.1.tgz#198a68c10f9ad2d42370ef66299d7b3168f8cffa"
+    integrity sha1-GYpowQ+a0tQjcO9mKZ17MWj4z/o=
+    dependencies:
+      postcss "^7.0.27"
+  
   postcss-reduce-initial@^4.0.3:
     version "4.0.3"
     resolved "https://registry.nlark.com/postcss-reduce-initial/download/postcss-reduce-initial-4.0.3.tgz?cache=0&sync_timestamp=1621449728984&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpostcss-reduce-initial%2Fdownload%2Fpostcss-reduce-initial-4.0.3.tgz#7fd42ebea5e9c814609639e2c2e84ae270ba48df"
@@ -11374,7 +11517,7 @@ Lockfile:
       source-map "^0.6.1"
       supports-color "^6.1.0"
   
-  postcss@^8.3.11:
+  postcss@^8.3.11, postcss@^8.3.8:
     version "8.3.11"
     resolved "https://registry.npmmirror.com/postcss/download/postcss-8.3.11.tgz#c3beca7ea811cd5e1c4a3ec6d2e7599ef1f8f858"
     integrity sha1-w77KfqgRzV4cSj7G0udZnvH4+Fg=
@@ -12194,6 +12337,13 @@ Lockfile:
     dependencies:
       hash-base "^3.0.0"
       inherits "^2.0.1"
+  
+  rollup@^2.57.0:
+    version "2.60.1"
+    resolved "https://registry.npmmirror.com/rollup/download/rollup-2.60.1.tgz?cache=0&sync_timestamp=1637567576726&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Frollup%2Fdownload%2Frollup-2.60.1.tgz#4b34cd247f09b421f10a3c9286eda2ecf9972079"
+    integrity sha512-akwfnpjY0rXEDSn1UTVfKXJhPsEBu+imi1gqBA1ZkHGydUnkV/fWCC90P7rDaLEW8KTwBcS1G3N4893Ndz+jwg==
+    optionalDependencies:
+      fsevents "~2.3.2"
   
   run-async@^2.2.0:
     version "2.4.1"
@@ -13959,6 +14109,13 @@ Lockfile:
     resolved "https://registry.nlark.com/upper-case/download/upper-case-1.1.3.tgz#f6b4501c2ec4cdd26ba78be7222961de77621598"
     integrity sha1-9rRQHC7EzdJrp4vnIilh3ndiFZg=
   
+  uppercamelcase@^3.0.0:
+    version "3.0.0"
+    resolved "https://registry.nlark.com/uppercamelcase/download/uppercamelcase-3.0.0.tgz#380b321b8d73cba16fec4d752a575152d1ef7317"
+    integrity sha1-OAsyG41zy6Fv7E11KldRUtHvcxc=
+    dependencies:
+      camelcase "^4.1.0"
+  
   uri-js@^4.2.2:
     version "4.4.1"
     resolved "https://registry.npm.taobao.org/uri-js/download/uri-js-4.4.1.tgz?cache=0&sync_timestamp=1610237624359&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Furi-js%2Fdownload%2Furi-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
@@ -14195,6 +14352,18 @@ Lockfile:
       remove-trailing-separator "^1.0.1"
       replace-ext "^1.0.0"
   
+  vite@^2.6.14:
+    version "2.6.14"
+    resolved "https://registry.npmmirror.com/vite/download/vite-2.6.14.tgz#35c09a15e4df823410819a2a239ab11efb186271"
+    integrity sha512-2HA9xGyi+EhY2MXo0+A2dRsqsAG3eFNEVIo12olkWhOmc8LfiM+eMdrXf+Ruje9gdXgvSqjLI9freec1RUM5EA==
+    dependencies:
+      esbuild "^0.13.2"
+      postcss "^8.3.8"
+      resolve "^1.20.0"
+      rollup "^2.57.0"
+    optionalDependencies:
+      fsevents "~2.3.2"
+  
   vm-browserify@^1.0.1:
     version "1.1.2"
     resolved "https://registry.nlark.com/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
@@ -14210,7 +14379,7 @@ Lockfile:
     resolved "https://registry.npm.taobao.org/vue-class-component/download/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
     integrity sha1-hHHgN7jkdi9aRkaG4Z5a/HCFAuQ=
   
-  vue-eslint-parser@^7.10.0:
+  vue-eslint-parser@7, vue-eslint-parser@^7.10.0:
     version "7.11.0"
     resolved "https://registry.nlark.com/vue-eslint-parser/download/vue-eslint-parser-7.11.0.tgz?cache=0&sync_timestamp=1630882911486&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.11.0.tgz#214b5dea961007fcffb2ee65b8912307628d0daf"
     integrity sha1-IUtd6pYQB/z/su5luJEjB2KNDa8=

@@ -11,7 +11,7 @@
       <el-input
         v-model="inputValueCopy"
         name="label-item"
-        size="small"
+        :size="size"
         :placeholder="placeholder"
         v-if="searchType === 'input'"
         @keyup.enter.native="handleKeyup"
@@ -24,6 +24,7 @@
       <el-select
         v-if="statusOpts.length || searchType === 'select'"
         name="label-item"
+        :size="size"
         v-model="selectValueCopy"
       >
         <el-option
@@ -34,7 +35,7 @@
         ></el-option>
       </el-select>
       <!-- 多选框类型默认插槽 -->
-      <div class="search-border" v-if="searchType === 'checkbox'">
+      <div class="search-border" v-if="searchType === 'checkbox'" :size="size">
         <el-checkbox-group
           v-model="checkboxListCopy"
           class="search-checkbox"
@@ -48,7 +49,7 @@
         </el-checkbox-group>
       </div>
       <!-- 单选框类型默认插槽 -->
-      <div class="search-border" v-if="searchType === 'radio'">
+      <div class="search-border" v-if="searchType === 'radio'" :size="size">
         <el-radio-group
           v-model="radioValueCopy"
           class="search-radio"
@@ -89,9 +90,12 @@ import { useComponent } from '../../utils/component'
 
 const components = [Input, Select, Checkbox, Radio, Option]
 useComponent(components, Vue)
+console.log(components)
+// Vue.use(Input)
 
 @Component({
-  name: 'PlatSearchItem'
+  name: 'PlatSearchItem',
+  components: {}
 })
 // 输入框，单选，多选，下拉选择器的方便显示和使用
 export default class PlatSearchItem extends Vue {
@@ -102,6 +106,7 @@ export default class PlatSearchItem extends Vue {
 
   @Prop({ default: () => 'input' }) searchType!: string
   @Prop({ default: () => 'label' }) label!: string
+  @Prop({ default: () => 'small' }) size!: string
   @PropSync('inputValue') inputValueCopy!: string //传进来的 值
   @Prop({ default: () => [] }) statusOpts!: [any] // 选择器的选项数组
   @PropSync('selectValue') selectValueCopy!: string // 选择器的值 默认只有简单值赋值之类的
