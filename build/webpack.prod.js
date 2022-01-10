@@ -8,7 +8,7 @@ const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 process.env.NODE_ENV = 'production'
-console.log(process.env.analyze, 'cross')
+
 module.exports = merge(webpackBaseConfig, {
   mode: 'production',
   entry: {
