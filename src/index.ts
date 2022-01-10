@@ -16,7 +16,6 @@ const install = function (Vue: any) {
     const name = getCompName(component)
     // Vue.component(name, component);
     Vue.use(component)
-    console.log(component, 'component in index')
   })
 
   Vue.prototype.$notice = Notice

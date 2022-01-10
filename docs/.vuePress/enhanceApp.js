@@ -1,7 +1,10 @@
 import { Button } from 'vant'
 // import { Button as EButton, Select } from 'element-ui'
-// import Element from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
+// TODO 方便查看element组件库里组件在这个webpack应用里的展示。
+// 在这个开发环境里引入组件库所有代码和样式文件
+// babel还没有对这里进行处理
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 import PlatformUI from '../../src/index'
 import '../../src/styles/index.scss'
@@ -16,6 +19,6 @@ import 'vant/lib/button/style'
 export default ({ Vue, options, router }) => {
   Vue.use(Button)
   // Vue.use(EButton)
-  // Vue.use(Element)
+  Vue.use(Element)
   Vue.use(PlatformUI)
 }
