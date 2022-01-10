@@ -86,16 +86,13 @@ import {
 } from 'vue-property-decorator'
 
 import { Input, Select, Checkbox, Radio, Option } from 'element-ui'
-import { useComponent } from '../../utils/component'
+import { registComponent } from '../../utils/component'
 
 const components = [Input, Select, Checkbox, Radio, Option]
-useComponent(components, Vue)
-console.log(components)
-// Vue.use(Input)
 
 @Component({
   name: 'PlatSearchItem',
-  components: {}
+  components: registComponent(components)
 })
 // 输入框，单选，多选，下拉选择器的方便显示和使用
 export default class PlatSearchItem extends Vue {

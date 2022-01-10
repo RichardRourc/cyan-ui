@@ -14,7 +14,9 @@ const components = [Button, SearchItem, MButtonBack, MSearchBar]
 const install = function (Vue: any) {
   components.forEach((component: any) => {
     const name = getCompName(component)
-    Vue.component(name, component)
+    // Vue.component(name, component);
+    Vue.use(component)
+    console.log(component, 'component in index')
   })
 
   Vue.prototype.$notice = Notice

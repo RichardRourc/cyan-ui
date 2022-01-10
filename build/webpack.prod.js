@@ -4,9 +4,11 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const webpackBaseConfig = require('./webpack.base.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 process.env.NODE_ENV = 'production'
-
+console.log(process.env.analyze, 'cross')
 module.exports = merge(webpackBaseConfig, {
   mode: 'production',
   entry: {
@@ -36,6 +38,12 @@ module.exports = merge(webpackBaseConfig, {
     // 不使用gulp后webpack单独打包css并且配置css文件名字
     new MiniCssExtractPlugin({
       filename: 'styles/plat-ui.css'
-    })
+    }),
+    (process.env['analyze'] &&
+      process.env['analyze'] === 'true' &&
+      new BundleAnalyzerPlugin()) ||
+      function () {
+        return undefined
+      }
   ]
 })

@@ -20,6 +20,8 @@ git-cz
 yarn make bbb
 # 多个名字的组件
 yarn make aaa-aaa
+
+如果是二次封装element之类的要在.vue文件里自己注册对应的组件，参考 search-item 组件
 ```
 
 ```js

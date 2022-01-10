@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build:prod": "webpack --config build/webpack.prod.js",
+    "build:analyze": "cross-env analyze=true webpack --config build/webpack.prod.js",
     "build:components": "webpack --config build/webpack.component.js",
     "build-file": "node build/bin/build-entry.js",
     "docs:dev": "vuepress dev docs",
@@ -116,7 +117,8 @@
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
     "vuepress": "^1.0.3",
-    "vuepress-plugin-typescript": "^0.3.1"
+    "vuepress-plugin-typescript": "^0.3.1",
+    "webpack-bundle-analyzer": "^4.5.0"
   },
   "publishConfig": {
     "registry": "https://npms.shanqu.cc/"

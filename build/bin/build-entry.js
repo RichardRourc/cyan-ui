@@ -22,7 +22,10 @@ const components = [
 const install = function(Vue:any) {
   components.forEach((component:any) => {
       var name = getCompName(component)
-      Vue.component(name, component);  
+      // Vue.component(name, component);
+      Vue.use(component)
+    console.log(component,'component in index')
+    
   });
 
   Vue.prototype.$notice = Notice;
