@@ -185,7 +185,7 @@ describe('search-item.vue', () =&gt; {
     () =&gt; {
       const wrapper = mount(SearchItem)
       // expect(wrapper.html())
-      expect(wrapper.find('.plat-search-item').isVisible()).to.true
+      expect(wrapper.find('.cyan-search-item').isVisible()).to.true
     },
     it('select value correctly', async () =&gt; {
       const searchType = 'select'
@@ -199,11 +199,11 @@ describe('search-item.vue', () =&gt; {
       vm = createVue(
         {
           template: `&lt;div&gt;
-                      &lt;plat-search-item
+                      &lt;cyan-search-item
                         :selectValue.sync="selectValue"
                         searchType="searchType"
                         :statusOpts="statusOpts"&gt;
-                      &lt;/plat-search-item&gt;
+                      &lt;/cyan-search-item&gt;
                     &lt;/div&gt;`,
           data() {
             return {

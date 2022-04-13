@@ -6,7 +6,7 @@ import { Button } from 'vant'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import PlatformUI from '../../src/index'
+import CyanformUI from '../../src/index'
 import '../../src/styles/index.scss'
 
 // import SearchItem from '../../src/packages/search-item/index'
@@ -20,5 +20,5 @@ export default ({ Vue, options, router }) => {
   Vue.use(Button)
   // Vue.use(EButton)
   Vue.use(Element)
-  Vue.use(PlatformUI)
+  Vue.use(CyanformUI)
 }

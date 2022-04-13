@@ -3,27 +3,27 @@
 > 2
 
 <template>
-    <!-- <plat-button type="primary">Click me</plat-button> -->
+    <!-- <cyan-button type="primary">Click me</cyan-button> -->
     <van-button>test van-button</van-button>
 </template>
 
 <template>
-	<plat-button type="primary">Click me</plat-button>
+	<cyan-button type="primary">Click me</cyan-button>
   <el-button @click="test">测试element组件按需引入 and click</el-button>
 
-<!-- <plat-search-item></plat-search-item> -->
+<!-- <cyan-search-item></cyan-search-item> -->
 
-<!-- <plat-search-item searchType="select" :selectValue.sync="selectValue" :statusOpts="testData"></plat-search-item> -->
-<!-- <plat-search-item searchType="select" :selectValue.sync="selectValue" :statusOpts="testData">
+<!-- <cyan-search-item searchType="select" :selectValue.sync="selectValue" :statusOpts="testData"></cyan-search-item> -->
+<!-- <cyan-search-item searchType="select" :selectValue.sync="selectValue" :statusOpts="testData">
 <el-select>
   <el-option></el-option>
 </el-select>
-</plat-search-item> -->
+</cyan-search-item> -->
 
-<plat-search-item searchType="input"></plat-search-item>
+<cyan-search-item searchType="input"></cyan-search-item>
 
-<plat-m-button-back @on-back="test"></plat-m-button-back>
-<plat-m-search-bar :keyword.sync="content"></plat-m-search-bar>
+<cyan-m-button-back @on-back="test"></cyan-m-button-back>
+<cyan-m-search-bar :keyword.sync="content"></cyan-m-search-bar>
 </template>
 
 <script>

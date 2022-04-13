@@ -1,7 +1,7 @@
 <template>
   <button
-    class="plat-button"
-    :class="{ [`plat-button-${type}`]: true }"
+    class="cyan-button"
+    :class="{ [`cyan-button-${type}`]: true }"
     type="button"
     @click="handleClick"
   >
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'PlatButton',
+  name: 'CyanButton',
   props: {
     type: {
       validator(value) {

@@ -8,33 +8,33 @@ describe('search-item.vue', () => {
     () => {
       const wrapper = mount(SearchItem)
       // expect(wrapper.html())
-      expect(wrapper.find('.plat-search-item').isVisible()).to.true
+      expect(wrapper.find('.cyan-search-item').isVisible()).to.true
     },
     it('select value correctly', async () => {
       const searchType = 'select'
       let selectValue = '',
         statusOpts = [
           { label: 'label', value: 'value' },
-          { label: 'label1', value: 'value1' },
+          { label: 'label1', value: 'value1' }
         ]
 
       let vm
       vm = createVue(
         {
           template: `<div>
-                      <plat-search-item
+                      <cyan-search-item
                         :selectValue.sync="selectValue"
                         searchType="searchType"
                         :statusOpts="statusOpts">
-                      </plat-search-item>
+                      </cyan-search-item>
                     </div>`,
           data() {
             return {
               selectValue,
               searchType,
-              statusOpts,
+              statusOpts
             }
-          },
+          }
         },
         true
       )

@@ -95,8 +95,8 @@ const webpackConfig = {
                       return remUnit
                     },
                     propList: ['*'],
-                    // 如果不是plat-m开头的css文件都不转换
-                    selectorBlackList: [/^\.(?!plat-m)\S*/]
+                    // 如果不是cyan-m开头的css文件都不转换
+                    selectorBlackList: [/^\.(?!cyan-m)\S*/]
                   })
                 ]
               }

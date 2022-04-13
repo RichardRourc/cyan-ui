@@ -1,6 +1,6 @@
 <template>
   <section
-    class="plat-search-item"
+    class="cyan-search-item"
     :style="`width: ${width}%; min-width: ${minWidth}px; max-width: ${maxWidth}px;`"
   >
     <div v-if="needLabel" class="item-label">
@@ -91,11 +91,11 @@ import { registComponent } from '../../utils/component'
 const components = [Input, Select, Checkbox, Radio, Option]
 
 @Component({
-  name: 'PlatSearchItem',
+  name: 'CyanSearchItem',
   components: registComponent(components)
 })
 // 输入框，单选，多选，下拉选择器的方便显示和使用
-export default class PlatSearchItem extends Vue {
+export default class CyanSearchItem extends Vue {
   @Prop({ default: () => true, type: Boolean }) needLabel!: boolean
   @Prop({ default: () => false }) needBorder!: boolean
   @Prop({ default: () => 0 }) minHeightBorder!: number

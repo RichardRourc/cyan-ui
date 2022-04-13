@@ -1,4 +1,4 @@
-# shanqu-plat-ui
+# cyan-ui
 
 webpack4 打包工具 + vue2.x 框架
 
@@ -16,7 +16,7 @@ webpack4 打包工具 + vue2.x 框架
 安装地址
 
 ```sh
-yarn add @shanquweb/shanqu-plat-ui
+yarn add cyan-ui
 ```
 
 :running: 本地调试组件库
@@ -33,7 +33,7 @@ yarn link
 
 ```sh
 #本地使用该组件库的其他项目
-yarn link shanqu-plat-ui
+yarn link cyan-ui
 ```
 
 :heavy_exclamation_mark: 如果项目 link 后，import 报 undefined，就需要设置 webpack.chainWebpack
@@ -46,10 +46,10 @@ config.resolve.set('symlinks', false)
 
 ```js
 全量加载：
-import PlatUI from "@shanquweb/shanqu-plat-ui"
-import "@shanquweb/shanqu-plat-ui/lib/styles/plat-ui.css"
+import CyanUI from "cyan-ui"
+import "cyan-ui/lib/styles/cyan-ui.css"
 
-Vue.use(PlatUI)
+Vue.use(CyanUI)
 
 按需加载：
 安装babel-plugin-component插件
@@ -59,7 +59,7 @@ plugins: [
     [
       "component",
       {
-        libraryName: "@shanquweb/shanqu-plat-ui",
+        libraryName: "cyan-ui",
         libDir: "lib",
         styleLibrary: {
           name: "styles",
@@ -72,7 +72,7 @@ plugins: [
 
 // main.js
 import Vue from "Vue"
-import {Button,Notice,SearchItem} from "@shanquweb/shanqu-plat-ui"
+import {Button,Notice,SearchItem} from "cyan-ui"
 
 // 普通vue组件引入方法
 var arr = [Button,SearchItem]

@@ -2,7 +2,7 @@
 
 module.exports = {
   plugins: ['vuepress-plugin-typescript'],
-  title: 'Platform UI',
+  title: 'Cyan UI',
   description: '平台组组件库',
   themeConfig: {
     nav: [

@@ -17,5 +17,5 @@ features:
 
 ```sh
 # 安装
-yarn shanqu-plat-ui
+yarn cyan-ui
 ```

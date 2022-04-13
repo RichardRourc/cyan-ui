@@ -12,13 +12,13 @@ process.env.NODE_ENV = 'production'
 module.exports = merge(webpackBaseConfig, {
   mode: 'production',
   entry: {
-    'plat-ui': path.resolve(__dirname, '../src/index') // 将src下的index.js 作为入口点
+    'cyan-ui': path.resolve(__dirname, '../src/index') // 将src下的index.js 作为入口点
   },
   output: {
     path: path.resolve(__dirname, '../lib'),
     publicPath: '/lib/',
-    filename: 'plat-ui.min.js', // 改成自己的类库名
-    library: 'plat-ui', // 类库导出
+    filename: 'cyan-ui.min.js', // 改成自己的类库名
+    library: 'cyan-ui', // 类库导出
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -37,7 +37,7 @@ module.exports = merge(webpackBaseConfig, {
     }),
     // 不使用gulp后webpack单独打包css并且配置css文件名字
     new MiniCssExtractPlugin({
-      filename: 'styles/plat-ui.css'
+      filename: 'styles/cyan-ui.css'
     }),
     (process.env['analyze'] &&
       process.env['analyze'] === 'true' &&

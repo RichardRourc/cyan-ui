@@ -1,32 +1,31 @@
-# PlatButton
+# CyanButton
 
 ## Props
 
-<!-- @vuese:PlatButton:props:start -->
-|Name|Description|Type|Required|Default|
-|---|---|---|---|---|
-|type|-|`String`|`false`|default|
+<!-- @vuese:CyanButton:props:start -->
 
-<!-- @vuese:PlatButton:props:end -->
+| Name | Description | Type     | Required | Default |
+| ---- | ----------- | -------- | -------- | ------- |
+| type | -           | `String` | `false`  | default |
 
+<!-- @vuese:CyanButton:props:end -->
 
 ## Events
 
-<!-- @vuese:PlatButton:events:start -->
-|Event Name|Description|Parameters|
-|---|---|---|
-|click|-|-|
+<!-- @vuese:CyanButton:events:start -->
 
-<!-- @vuese:PlatButton:events:end -->
+| Event Name | Description | Parameters |
+| ---------- | ----------- | ---------- |
+| click      | -           | -          |
 
+<!-- @vuese:CyanButton:events:end -->
 
 ## Slots
 
-<!-- @vuese:PlatButton:slots:start -->
-|Name|Description|Default Slot Content|
-|---|---|---|
-|default|-|-|
+<!-- @vuese:CyanButton:slots:start -->
 
-<!-- @vuese:PlatButton:slots:end -->
+| Name    | Description | Default Slot Content |
+| ------- | ----------- | -------------------- |
+| default | -           | -                    |
 
-
+<!-- @vuese:CyanButton:slots:end -->

@@ -12,7 +12,7 @@ function buildCss(cb) {
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(cleanCSS())
-    .pipe(rename('plat-ui.css'))
+    .pipe(rename('cyan-ui.css'))
     .pipe(gulp.dest('../lib/styles'))
   cb()
 }

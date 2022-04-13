@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import PlatUI from '../../src/index'
+import CyanUI from '../../src/index'
 
-Vue.use(PlatUI)
+Vue.use(CyanUI)
 
 let id = 0
 

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="plat-m-search-bar"
-    :class="{ 'plat-m-search-bar__clicked': isSearchClick || keywordCopy }"
+    class="cyan-m-search-bar"
+    :class="{ 'cyan-m-search-bar__clicked': isSearchClick || keywordCopy }"
     @click="handleSearchClick"
   >
     <div
@@ -45,9 +45,9 @@
 import { Component, Vue, Watch, Prop, PropSync } from 'vue-property-decorator'
 
 @Component({
-  name: 'PlatMSearchBar'
+  name: 'CyanMSearchBar'
 })
-export default class PlatMSearchBar extends Vue {
+export default class CyanMSearchBar extends Vue {
   @PropSync('keyword', { required: true }) keywordCopy!: string //传进来的 值
 
   isSearchClick = false

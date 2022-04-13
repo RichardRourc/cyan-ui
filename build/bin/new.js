@@ -37,12 +37,12 @@ export default ${ComponentName};`
   {
     filename: `${componentname}.vue`,
     content: `<template>
-  <div class="plat-${componentname}"></div>
+  <div class="cyan-${componentname}"></div>
 </template>
 
 <script>
 export default {
-  name: 'Plat${ComponentName}'
+  name: 'Cyan${ComponentName}'
 };
 </script>`
   },

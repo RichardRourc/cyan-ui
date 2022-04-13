@@ -1,5 +1,5 @@
 <template>
-  <section class="plat-m-button-back" :class="{ 'button-back--fixed': isDown }">
+  <section class="cyan-m-button-back" :class="{ 'button-back--fixed': isDown }">
     <div
       class="button-back-content"
       :class="{ 'button-back-content--fixed': isDown }"
@@ -19,9 +19,9 @@ const backIcon = require('../../assets/icon_back.png')
 Vue.use(Button)
 
 @Component({
-  name: 'PlatMButtonBack'
+  name: 'CyanMButtonBack'
 })
-export default class PlatMButtonBack extends Vue {
+export default class CyanMButtonBack extends Vue {
   @Prop({ default: () => '结算明细' }) buttonName!: string
   // @Prop({ default: () => false }) routeObj
   @Prop({

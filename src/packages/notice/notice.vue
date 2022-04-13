@@ -1,15 +1,15 @@
 <template>
-  <div class="plat-notice">
-    <div class="plat-notice__main" v-for="item in notices" :key="item.id">
-      <div class="plat-notice__title">{{ item.title }}</div>
-      <div class="plat-notice__content">{{ item.content }}</div>
+  <div class="cyan-notice">
+    <div class="cyan-notice__main" v-for="item in notices" :key="item.id">
+      <div class="cyan-notice__title">{{ item.title }}</div>
+      <div class="cyan-notice__content">{{ item.content }}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PlatNotice',
+  name: 'CyanNotice',
   data() {
     return {
       notices: []

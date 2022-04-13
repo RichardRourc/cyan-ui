@@ -1,22 +1,21 @@
-# PlatMSearchBar
+# CyanMSearchBar
 
 ## Props
 
-<!-- @vuese:PlatMSearchBar:props:start -->
-|Name|Description|Type|Required|Default|
-|---|---|---|---|---|
-|keyword|-|`string`|`true`|-|
+<!-- @vuese:CyanMSearchBar:props:start -->
 
-<!-- @vuese:PlatMSearchBar:props:end -->
+| Name    | Description | Type     | Required | Default |
+| ------- | ----------- | -------- | -------- | ------- |
+| keyword | -           | `string` | `true`   | -       |
 
+<!-- @vuese:CyanMSearchBar:props:end -->
 
 ## Events
 
-<!-- @vuese:PlatMSearchBar:events:start -->
-|Event Name|Description|Parameters|
-|---|---|---|
-|on-search|-|-|
+<!-- @vuese:CyanMSearchBar:events:start -->
 
-<!-- @vuese:PlatMSearchBar:events:end -->
+| Event Name | Description | Parameters |
+| ---------- | ----------- | ---------- |
+| on-search  | -           | -          |
 
-
+<!-- @vuese:CyanMSearchBar:events:end -->
